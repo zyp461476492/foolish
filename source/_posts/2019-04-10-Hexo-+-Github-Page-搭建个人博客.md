@@ -37,6 +37,17 @@ $ cd <folder>
 $ npm install
 ```
 
+随后修改  **_config.yml** 配置文件，首先配置网站的基本信息，我的配置如下所示
+
+```
+title: 张蕴鹏的博客                    # 你的网页标题
+subtitle: stay hungry stay foolish    # 你的副标题
+description: Just do IT!              # 你的网站描述
+keywords: IT LOG STUDY                # 你的网站关键字
+author:                               # 作者名称
+language: zh-CN                       # 语言类别
+timezone:                             # 时区
+```
 
 
 ## 主题选择及配置
