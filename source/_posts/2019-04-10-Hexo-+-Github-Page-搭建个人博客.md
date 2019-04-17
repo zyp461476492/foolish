@@ -143,7 +143,54 @@ social:
 
 ## hexo 部署至Github Pages
 
-## 遇到问题及存在的疑惑
+部署之前，要进行配置，修改 `_config.yml` 修改下列参数
+
+```yml
+deploy:
+  type: git
+  repo: <repository url> #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  branch: [branch] #published
+  message: [message]
+```
+
+- repo 即为仓库地址。
+- branch 为部署页面提交至的分支， GitHub 应该设置为 gh-pages。
+- message 为提交时的信息，这里默认设置即可。
+
+如果要配置多个部署环境，参考以下配置方式
+
+```yml
+deploy:
+- type: git
+  repo:
+- type: heroku
+  repo:
+```
+
+这里我们使用 git 来进行配置，更为详细的配置文档，请参考 hexo 官方文档。
+
+首先安装 [hexo-deployer-git][hexo-deployer-git]  
+
+```bash
+npm install hexo-deployer-git --save
+```
+
+随后部署至 GitHub 上，输入下列命令
+
+```bash
+hexo deploy -g
+```
+
+-g 相当于
+
+```bash
+hexo clean
+hexo deploy
+```
+
+最后进入 GitHub 对应仓库的设置页，开启 GitHub Pages 功能即可，将分支配置为 `gh-pages`。
+
+输入 `https://yourName.github.io/repository` 进行访问。
 
 [node]: https://nodejs.org/
 [git]: https://git-scm.com/
@@ -151,3 +198,4 @@ social:
 [hexo]: https://hexo.io/zh-cn/
 [next]: https://theme-next.org/
 [nextConfig]: https://github.com/zyp461476492/foolish/blob/master/themes/next/_config.yml
+[hexo-deployer-git]: https://github.com/hexojs/hexo-deployer-git
