@@ -78,6 +78,14 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:zyp461476492/foolish.git
-  branch: gh-pages
+  - type: git
+    repo: git@github.com:zyp461476492/foolish.git
+    branch: gh-pages
+  - type: leancloud_counter_security_sync
+
+leancloud_counter_security:
+  enable_sync: true
+  app_id: qyDpKKt9frgXnkHHvB0oEcdq-gzGzoHsz   # 同前文的id
+  app_key: GoyLcShGPoiC5aaTNcdeuWzk # 同前文的key
+  username: 
+  password: 

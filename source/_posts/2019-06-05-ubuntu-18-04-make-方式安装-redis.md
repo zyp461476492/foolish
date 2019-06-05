@@ -8,7 +8,6 @@ categories: 'redis, linux'
 date: 2019-06-05 13:57:00
 ---
 
-
 > 以本地编译的方式，在 ubuntu 18.04 环境下部署 redis
 
 <!-- more -->
