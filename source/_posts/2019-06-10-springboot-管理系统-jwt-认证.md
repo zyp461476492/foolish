@@ -20,5 +20,3 @@ jwt 由三个部分组成，这三个部分为
 - header
 - payload (body)
 - signature
-
-
