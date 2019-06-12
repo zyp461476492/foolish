@@ -133,4 +133,162 @@ public class JwtUtils {
 }
 ```
 
+上述代码涉及其他依赖：
+
+- lombok
+- spring
+
+## spring MVC 集成 jwt 认证 （无框架）
+
+在这里，出于学习的目的，没有使用 shiro 或者 spring security 等框架，而是自己才用相对原生（原始）的手段，来集成 jwt 认证，以便加深对 jwt 认证的理解。
+
+我理解的 jwt 认证的方式大致是如下述图所示。
+
+![jwt 认证过程](https://user-images.githubusercontent.com/21177719/59336117-845aca80-8d30-11e9-88a3-30821d08a890.png)
+
+认证的核心就是要对所有的请求进行验证，查看是否存在 token 并且要验证 token 是否合法。
+
+核心步骤如下：
+
+1. 对所有的请求进行验证，这里就需要用到 spring MVC 的 web 拦截器，对请求进行拦截，查看请求是否携带 token。
+2. 判断该请求是否需要验证 token （存在一些无需认证的 URL）， 如果需要验证，执行第三步， 若不需要，进行放行。
+3. 使用封装好的 jjwt 工具对 token 进行验证，验证通过，放行请求，不通过，返回对应的响应结果。
+
+spring mvc 使用拦截器对所有请求进行拦截，代码如下：
+
+```java
+package github.beginner.noname.config.web.interceptor;
+
+import github.beginner.noname.annotation.NotCheckJwt;
+import github.beginner.noname.constant.CommonConstant;
+import github.beginner.noname.exception.JwtVerifyException;
+import github.beginner.noname.util.JwtUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.HandlerInterceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * token 验证拦截器
+ * @author zyp on 2019/2/19
+ */
+@Slf4j
+@Component
+public class JwtInterceptor implements HandlerInterceptor {
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+        // 如果不是映射到方法，直接通过，比如类级别的映射，按道理来说是错误地址
+        if (!(handler instanceof HandlerMethod)) {
+            return true;
+        }
+        HandlerMethod handlerMethod = (HandlerMethod) handler;
+        // 获得class 级别的注解
+        NotCheckJwt notCheckJwt = handlerMethod.getMethod().getAnnotation(NotCheckJwt.class);
+        // 存在@NotCheckJwt注解，不需要验证jwt
+        if (notCheckJwt != null) {
+            return true;
+        }
+
+        String jws = request.getHeader(CommonConstant.USER_TOKEN);
+        if (jws == null) {
+            throw new JwtVerifyException("token is empty");
+        }
+        boolean res = JwtUtils.verifyJwt(jws);
+        if (res) {
+            return true;
+        } else {
+            throw new JwtVerifyException("access-deny");
+        }
+    }
+}
+```
+
+上述代码，首先请求的路径上是否有 @NotCheckJwt 注解。
+
+```java
+package github.beginner.noname.annotation;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * 加入此注解的method，无需验证jwt
+ * @author zyp on 2019/2/19
+ */
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface NotCheckJwt {}
+```
+
+如果存在该注解，则直接放行，说明对应的 URL 不需要验证 jwt。其次，从 header 中获取对应的 token 信息 （我这里把 token 放在了 header中），如果为空，抛出异常，如果不为空，进行验证，验证失败的话，抛出异常。这里抛出的异常交给了 spring mvc 的 HandlerExceptionResolver 来进行处理。
+
+```java
+package github.beginner.noname.config.web.exception;
+
+import com.alibaba.fastjson.JSON;
+import github.beginner.noname.constant.CodeConstant;
+import github.beginner.noname.domain.dto.common.ResponseMsg;
+import github.beginner.noname.exception.JwtVerifyException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * @author zyp on 2019/2/19
+ */
+@Slf4j
+@Component
+public class WebExceptionResolver implements HandlerExceptionResolver {
+    @Override
+    public ModelAndView resolveException(HttpServletRequest request,
+                                         HttpServletResponse response, Object handler, Exception ex) {
+        ResponseMsg responseMsg = new ResponseMsg();
+        if (ex instanceof JwtVerifyException) {
+            resolverJwtException(ex, responseMsg);
+        } else {
+            log.debug("请求时发生异常 {} ", ex.getMessage(), ex);
+            ex.printStackTrace();
+            resolverOtherException(ex, responseMsg);
+        }
+
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setCharacterEncoding("UTF-8");
+        response.setHeader("Cache-Control", "no-cache, must-revalidate");
+        try {
+            response.getWriter().write(JSON.toJSONString(responseMsg));
+        } catch (IOException e) {
+            log.error("与客户端通讯异常：{}", e.getMessage(), e);
+            e.printStackTrace();
+        }
+        return new ModelAndView();
+    }
+
+    private void resolverJwtException(Exception ex, ResponseMsg resMsg) {
+        JwtVerifyException jwtVerifyException = (JwtVerifyException) ex;
+        resMsg.setCode(CodeConstant.JWT_VERIFY_CODE);
+        resMsg.setMsg(jwtVerifyException.getMsg());
+    }
+
+    private void resolverOtherException(Exception ex, ResponseMsg resMsg) {
+        resMsg.setCode(CodeConstant.FAIL_CODE);
+        resMsg.setMsg(ex.getMessage());
+    }
+}
+
+```
+
+这一步完成后，所以访问的 URL ，如果没有 @NotCheckJwt 注解，都会进行 token 验证。
+
 [jjwt]: https://github.com/jwtk/jjwt
