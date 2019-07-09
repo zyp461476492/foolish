@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 张蕴鹏的博客
-subtitle: stay hungry stay foolish
+title: 无个性
+subtitle: One·for·All
 description: Just do IT!
 keywords: IT LOG STUDY
-author: 张蕴鹏
+author: 无个性
 language: zh-CN
 timezone:
 
@@ -93,5 +93,3 @@ leancloud_counter_security:
 symbols_count_time:
   symbols: true
   time: true
-  total_symbols: true
-  total_time: true
