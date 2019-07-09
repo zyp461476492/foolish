@@ -89,3 +89,9 @@ leancloud_counter_security:
   app_key: GoyLcShGPoiC5aaTNcdeuWzk # 同前文的key
   username: 
   password: 
+
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
