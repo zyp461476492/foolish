@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/foolish/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/foolish/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/foolish/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/foolish/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/foolish/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/foolish/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/foolish/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="敏捷的基本概念，scrum的实际运用的学习笔记">
+<meta name="keywords" content="敏捷,scrum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="敏捷式软件开发-学习笔记">
+<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/06/19/敏捷式软件开发-学习笔记/index.html">
+<meta property="og:site_name" content="无个性">
+<meta property="og:description" content="敏捷的基本概念，scrum的实际运用的学习笔记">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://user-images.githubusercontent.com/21177719/59812625-3aca3b00-9341-11e9-8433-552e4f8b0c8b.png">
+<meta property="og:updated_time" content="2019-08-29T02:29:33.603Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="敏捷式软件开发-学习笔记">
+<meta name="twitter:description" content="敏捷的基本概念，scrum的实际运用的学习笔记">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/21177719/59812625-3aca3b00-9341-11e9-8433-552e4f8b0c8b.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/06/19/敏捷式软件开发-学习笔记/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>敏捷式软件开发-学习笔记 | 无个性</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/foolish/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">无个性</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">One·for·All</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/foolish/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/foolish/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/06/19/敏捷式软件开发-学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无个性">
+      <meta itemprop="description" content="Just do IT!">
+      <meta itemprop="image" content="/foolish/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无个性">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">敏捷式软件开发-学习笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-19 17:23:30" itemprop="dateCreated datePublished" datetime="2019-06-19T17:23:30+08:00">2019-06-19</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-29 10:29:33" itemprop="dateModified" datetime="2019-08-29T10:29:33+08:00">2019-08-29</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/foolish/categories/敏捷开发/" itemprop="url" rel="index"><span itemprop="name">敏捷开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">3.2k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">3 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>敏捷的基本概念，scrum的实际运用的学习笔记</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>公司的项目经理给我们培训了敏捷的相关知识，为后续团队的敏捷转型做准备，这里记录学习过程。</p>
+<h2 id="敏捷的起源"><a href="#敏捷的起源" class="headerlink" title="敏捷的起源"></a>敏捷的起源</h2><p>敏捷起源于日本的工厂生产中，日本工厂为了提高效率而采用的流程和方法。后续它的核心精神和好的理念被软件行业所吸收，最终成为了现有的敏捷软件开发方法。</p>
+<p>敏捷开发具有的特点是：</p>
+<ul>
+<li>自我组织</li>
+<li>多功能</li>
+<li>持续改进</li>
+<li>灵活应对变化</li>
+</ul>
+<h2 id="敏捷宣言"><a href="#敏捷宣言" class="headerlink" title="敏捷宣言"></a>敏捷宣言</h2><blockquote>
+<p>我们正通过亲身实践和帮助他人实践，揭示了一些更好的软件开发方法。通过这项工作，我们认为：</p>
+<ul>
+<li>个体和互动高于流程和工具</li>
+<li>工作的软件高于详尽的文档</li>
+<li>客户合作高于合同谈判</li>
+<li>响应变化高于遵守计划</li>
+</ul>
+<p>也就是说，尽管右项有其价值，但我们跟重视左项的价值。</p>
+<p>敏捷宣言作者，2001年版权所有。更多详细信息请访问agilemanifesto.org</p>
+</blockquote>
+<h2 id="什么是敏捷"><a href="#什么是敏捷" class="headerlink" title="什么是敏捷"></a>什么是敏捷</h2><p>这里谈一谈我对敏捷的理解，在敏捷开发出现之前，最流行的开发方式就是瀑布流程，注重计划和流程，工具等，忽视人的作用。盘随着软件开发技术的进步，很多方面都发生了翻天覆地的改变。</p>
+<p>在原来，可能需要十个人才能完成的工作，借助现今的工具和编程语言还有框架等工具，可能一个人一天就能完成，开发效率大大提高，开发难度向比较之前门槛降低了很多，难度降低了很多。在这种情况下，原有的非敏捷的开发模式，不能够满足现有的开发流程，所以需要一套更为先进的手段来管理，组织软件开发过程。这就是我认为敏捷的产生原因。</p>
+<p>在敏捷开发中，强调人的作用，重视人的作用，精兵作战，讲究团队协作，团队是第一位的。敏捷的目的是更快，更高效的开发软件。忽视流程和工具还有文档，并不代表就不去使用这些，只是最重要的事，是在一个短时间内交付出一个可运行的完整软件，伴随着一次一次的迭代，最终达到目的，交付一个高可用的软件产品。</p>
+<h2 id="常见敏捷实践方法"><a href="#常见敏捷实践方法" class="headerlink" title="常见敏捷实践方法"></a>常见敏捷实践方法</h2><ul>
+<li>XP 编程</li>
+<li>scrum</li>
+<li>Crystal 水晶方法</li>
+<li>FDD 特征驱动开发</li>
+<li>ASD 自适应软件开发</li>
+<li>DSDM 动态系统开发方法</li>
+</ul>
+<h2 id="Scrum"><a href="#Scrum" class="headerlink" title="Scrum"></a>Scrum</h2><p>scrum 的创始人是 Jeff Sutherland 和 Ken Schwaber 。</p>
+<p>Sutherland 在听取了两位日本管理教授竹内弘高和野中郁次郎介绍制造业里出现新的产品开发方法 Rugby （橄榄球）的文章后，结合自己多年的经验，和 easel 公司的 johJohn Scumniotales 和 Jeff McKennan 一起开发了一套方法，取名为 scrum （来源于橄榄球术语，意思是争球）。其中 rugby 方式的特点是整个流程都由一个高性能，跨功能的团队执行到底。</p>
+<p>Schwaber 则从杜邦公司一个化工过程控制专家哪里取经，意识到项目分为两种：确定性项目，一切都已经确定，可以自动化生产流程；实验性项目，充满不确定性，哪怕一点微小的变化也会牵一发而动全身，因此只能用各种仪表不断监控，随时做出调整——这就是每日站会的由来。</p>
+<p>两人合作，做了详细的研究，共同创造了 scrum。</p>
+<h2 id="Scrum-特性"><a href="#Scrum-特性" class="headerlink" title="Scrum 特性"></a>Scrum 特性</h2><p>Scrum是一个包括了一系列的实践和预定义角色的过程骨架（是一种流程、计划、模式，用于有效率地开发软件）。</p>
+<p>在每一次冲刺（一个15到30 天周期 ，长度由开发团队决定），开发团队创建可用的（可以随时推出）软件的一个增量。每一个冲刺所要实现的特性来自产品订单（product backlog，我觉得翻译成“产品目标”更恰当）， 产品订单（产品目标）是指按照优先级排列的需要完成的工作的概要的需求（目标）。哪些订单项（目标项目）会被加入一次冲刺，由冲刺计划会议决定。 在会议中，产品负责人告诉开发团队他需要完成产品订单中的哪些订单项。开发团队决定在下一次冲刺中他们能够承诺完成多少订单项。 在冲刺的过程中，没有人能够变更冲刺订单（sprint backlog），这意味着在一个冲刺中需求是被冻结的。</p>
+<h2 id="Scrum-主要活动"><a href="#Scrum-主要活动" class="headerlink" title="Scrum 主要活动"></a>Scrum 主要活动</h2><ul>
+<li>计划会 Sprint Planning Meeting：在每个冲刺之初，由产品负责人讲解需求，并由开发团队进行估算的计划会议。</li>
+<li>每日立会 Daily Standup Meeting：团队每天进行沟通的内部短会，因一般只有15分钟且站立进行而得名。</li>
+<li>评审会 Review Meeting：在冲刺结束前给产品负责人演示并接受评价的会议。</li>
+<li>反思会/回顾会 Retrospective Meeting：在冲刺结束后召开的关于自我持续改进的会议。</li>
+<li>冲刺 Sprint 一个时间周期（通常在2周到1个月之间），开发团队会在此期间内完成所承诺的一组订单项的开发。</li>
+</ul>
+<h2 id="Scrum-参与角色"><a href="#Scrum-参与角色" class="headerlink" title="Scrum 参与角色"></a>Scrum 参与角色</h2><ul>
+<li>产品负责人 Product Owner： 负责维护产品订单的人，代表利益相关者的利益。</li>
+<li>Scrum主管 Scrum Master： 为Scrum过程负责的人，确保scrum的正确使用并使得Scrum的收益最大化。一般不翻译。</li>
+<li>开发团队 Team: 由负责自我管理开发产品的人组成的跨职能团队。</li>
+</ul>
+<h2 id="Scrum-工件"><a href="#Scrum-工件" class="headerlink" title="Scrum 工件"></a>Scrum 工件</h2><ul>
+<li>产品列表 Product Backlog：根据用户价值进行优先级排序的高层需求。</li>
+<li>冲刺订单 Sprint Backlog：要在冲刺中完成的任务的清单。</li>
+<li>产品增量 Increment：最终交付给客户的内容</li>
+</ul>
+<h2 id="Scrum-基本流程"><a href="#Scrum-基本流程" class="headerlink" title="Scrum 基本流程"></a>Scrum 基本流程</h2><ol>
+<li>首先确认一个 <strong>产品列表</strong> （Product Backlog，按照优先级排列），由 <strong>产品负责人</strong> 负责。</li>
+<li><strong>开发团队</strong> 根据产品列表，做工作量的预估和安排，即建立 <strong>用户故事</strong>。</li>
+<li>有了产品列表，我们需要通过计划会来从中来挑选一个 <strong>用户故事</strong> 作为本次迭代完成的目标，这个目标的时间周期是1~4周（即一个冲刺），然后把这个用户故事细化，形成一个 <strong>冲刺订单</strong>。</li>
+<li><strong>冲刺订单</strong> 由 <strong>开发团队</strong> 完成，每个成员根据<strong>冲刺订单</strong>再细化成更小的任务（两天内完成，即一般来说任务要分解到8小时内）。</li>
+<li>在冲刺过程中，每天要进行15分钟的<strong>每日立会</strong>，汇报内容为：我昨天完成了什么，今天要完成什么，遇到了什么困难。回答完成后并更新自己的燃尽图。</li>
+<li>要做到每日集成，即每天都有一个可成功编译，可以演示的版本。</li>
+<li>一个冲刺完成时，要进行<strong>评审会</strong>，演示完成的软件产品，并进行评审。</li>
+<li>最后就是<strong>反思会/回顾会</strong>。</li>
+</ol>
+<h2 id="用户故事"><a href="#用户故事" class="headerlink" title="用户故事"></a>用户故事</h2><p>用户故事是从用户角度来描述用户渴望的功能，一个好的用户故事包含三个要素</p>
+<ol>
+<li>角色：谁要使用这个功能，即用户类型</li>
+<li>活动：需要完成什么样的活动。</li>
+<li>价值：能带来的价值</li>
+</ol>
+<p>用户故事的 INVEST 特性</p>
+<ol>
+<li>独立性（Independent）— 要尽可能的让一个用户故事独立于其他的用户故事。用户故事之间的依赖使得制定计划，确定优先级，工作量估算都变得很困难。通常我们可以通过组合用户故事和分解用户故事来减少依赖性。</li>
+<li>可协商性（Negotiable）— 一个用户故事的内容要是可以协商的，用户故事不是合同。一个用户故事卡片上只是对用户故事的一个简短的描述，不包括太多的细节。具体的细节在沟通阶段产出。一个用户故事卡带有了太多的细节，实际上限制了和用户的沟通。</li>
+<li>有价值（Valuable）— 每个故事必须对客户具有价值（无论是用户还是购买方）。一个让用户故事有价值的好方法是让客户来写下它们。一旦一个客户意识到这是一个用户故事并不是一个契约而且可以进行协商的时候，他们将非常乐意写下故事。</li>
+<li>可以估算性（Estimable）—开发团队需要去估计一个用户故事以便确定优先级，工作量，安排计划。但是让开发者难以估计故事的问题来自：对于领域知识的缺乏（这种情况下需要更多的沟通），或者故事太大了（这时需要把故事切分成小些的）。</li>
+<li>短小（Small）— 一个好的故事在工作量上要尽量短小，最好不要超过10个理想人/天的工作量,至少要确保的是在一个迭代或Sprint中能够完成。用户故事越大，在安排计划，工作量估算等方面的风险就会越大。</li>
+<li>可测试性（Testable）—一个用户故事要是可以测试的，以便于确认它是可以完成的。如果一个用户故事不能够测试，那么你就无法知道它什么时候可以完成。一个不可测试的用户故事例子：软件应该是易于使用的。</li>
+</ol>
+<h2 id="用户故事卡"><a href="#用户故事卡" class="headerlink" title="用户故事卡"></a>用户故事卡</h2><p>用户故事卡要包含如下内容</p>
+<ol>
+<li>优先级</li>
+<li>价值</li>
+<li>分数</li>
+<li>时间</li>
+<li>标题</li>
+<li>描述</li>
+<li>验收标准 (AC)</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/21177719/59812625-3aca3b00-9341-11e9-8433-552e4f8b0c8b.png" alt="用户故事卡"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/foolish/tags/敏捷/" rel="tag"># 敏捷</a>
+          
+            <a href="/foolish/tags/scrum/" rel="tag"># scrum</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/foolish/2019/06/10/springboot-管理系统-jwt-认证/" rel="next" title="springboot 管理系统 jwt 认证">
+                <i class="fa fa-chevron-left"></i> springboot 管理系统 jwt 认证
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/foolish/2019/06/21/GO学习笔记/" rel="prev" title="GO学习笔记">
+                GO学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">无个性</p>
+              <div class="site-description motion-element" itemprop="description">Just do IT!</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/foolish/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/foolish/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/foolish/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zyp461476492" title="GitHub &rarr; https://github.com/zyp461476492" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#敏捷的起源"><span class="nav-number">2.</span> <span class="nav-text">敏捷的起源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#敏捷宣言"><span class="nav-number">3.</span> <span class="nav-text">敏捷宣言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是敏捷"><span class="nav-number">4.</span> <span class="nav-text">什么是敏捷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见敏捷实践方法"><span class="nav-number">5.</span> <span class="nav-text">常见敏捷实践方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum"><span class="nav-number">6.</span> <span class="nav-text">Scrum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-特性"><span class="nav-number">7.</span> <span class="nav-text">Scrum 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-主要活动"><span class="nav-number">8.</span> <span class="nav-text">Scrum 主要活动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-参与角色"><span class="nav-number">9.</span> <span class="nav-text">Scrum 参与角色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-工件"><span class="nav-number">10.</span> <span class="nav-text">Scrum 工件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-基本流程"><span class="nav-number">11.</span> <span class="nav-text">Scrum 基本流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户故事"><span class="nav-number">12.</span> <span class="nav-text">用户故事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户故事卡"><span class="nav-number">13.</span> <span class="nav-text">用户故事卡</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">无个性</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/foolish/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/foolish/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/foolish/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/foolish/js/utils.js?v=7.2.0"></script>
+
+  <script src="/foolish/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/foolish/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/foolish/js/scrollspy.js?v=7.2.0"></script>
+<script src="/foolish/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/foolish/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>

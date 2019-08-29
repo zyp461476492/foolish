@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/foolish/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/foolish/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/foolish/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/foolish/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/foolish/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/foolish/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/foolish/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="借助 Hexo + Github Page 搭建个人博客，使用主题为nexT">
+<meta name="keywords" content="hexo,教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo + Github Page 搭建个人博客">
+<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/04/10/Hexo-+-Github-Page-搭建个人博客/index.html">
+<meta property="og:site_name" content="无个性">
+<meta property="og:description" content="借助 Hexo + Github Page 搭建个人博客，使用主题为nexT">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-29T02:29:33.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo + Github Page 搭建个人博客">
+<meta name="twitter:description" content="借助 Hexo + Github Page 搭建个人博客，使用主题为nexT">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/04/10/Hexo-+-Github-Page-搭建个人博客/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hexo + Github Page 搭建个人博客 | 无个性</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/foolish/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">无个性</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">One·for·All</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/foolish/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/foolish/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/04/10/Hexo-+-Github-Page-搭建个人博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无个性">
+      <meta itemprop="description" content="Just do IT!">
+      <meta itemprop="image" content="/foolish/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无个性">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hexo + Github Page 搭建个人博客
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-10 14:43:02" itemprop="dateCreated datePublished" datetime="2019-04-10T14:43:02+08:00">2019-04-10</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-29 10:29:33" itemprop="dateModified" datetime="2019-08-29T10:29:33+08:00">2019-08-29</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/foolish/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">3k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">3 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>借助 Hexo + Github Page 搭建个人博客，使用主题为nexT</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li>系统版本：win10 64 位</li>
+<li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> 版本: 10.14.1</li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">git</a> 版本: 2.19.2.windows.1</li>
+<li><a href="https://atom.io/" target="_blank" rel="noopener">atom</a>: 用做 markdown 语法编辑器</li>
+</ul>
+<h2 id="hexo-配置"><a href="#hexo-配置" class="headerlink" title="hexo 配置"></a>hexo 配置</h2><p>进入 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a> 官网，点击文档，参考文档进行配置。</p>
+<p>首先安装需要安装 Node.js（版本要大于6.9） 和 Git。随后执行命令安装hexo。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局安装 hexo-cli</span></span><br><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>安装 Hexo 完成后，执行下列命令，新建一个Hexo项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line"><span class="comment"># 安装所需要的依赖等</span></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>随后修改  <strong>_config.yml</strong> 配置文件，首先配置网站的基本信息，我的配置如下所示</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 张蕴鹏的博客                    # 你的网页标题</span><br><span class="line">subtitle: stay hungry stay foolish    # 你的副标题</span><br><span class="line">description: Just do IT!              # 你的网站描述</span><br><span class="line">keywords: IT LOG STUDY                # 你的网站关键字</span><br><span class="line">author:                               # 作者名称</span><br><span class="line">language: zh-CN                       # 语言类别</span><br><span class="line">timezone:                             # 时区</span><br></pre></td></tr></table></figure>
+
+<p>至此，Hexo 的基础配置就已完成，执行下列命令，启动本地预览（默认地址为 localhost:4000）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<p>效果如下</p>
+<h2 id="Hexo基础操作"><a href="#Hexo基础操作" class="headerlink" title="Hexo基础操作"></a>Hexo基础操作</h2><h3 id="发布一篇文章"><a href="#发布一篇文章" class="headerlink" title="发布一篇文章"></a>发布一篇文章</h3><p>执行下列的命令来发布一篇新的文章</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br><span class="line">INFO  Created: E:/blog/foolish/<span class="built_in">source</span>/[layout path]/&lt;year&gt;-&lt;month&gt;-&lt;day&gt;-&lt;title&gt;.md</span><br></pre></td></tr></table></figure>
+
+<p>其中 layout 是可选参数，默认设置的 layout 为 <code>post</code> ，如果需要修改默认配置的 layout ，可以通过修改 <code>_config.yml</code> 的 <code>default_layout</code> 来变更默认 <code>layout</code> 。</p>
+<p>title 是对应文章的名称，生成的 MD 文件的名称可以通过修改 <code>_config_yml</code> 的 <code>new_post_name</code> 来变更。</p>
+<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><p>Hexo 默认包含了下列表格中所示的 Layout ，具体如果新建 Layout ，笔者暂时还没有弄清楚。</p>
+<table>
+<thead>
+<tr>
+<th align="center">Layout</th>
+<th align="center">路径</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">post</td>
+<td align="center">source/_posts</td>
+<td align="center">发布</td>
+</tr>
+<tr>
+<td align="center">page</td>
+<td align="center">source</td>
+<td align="center">未知功能</td>
+</tr>
+<tr>
+<td align="center">draft</td>
+<td align="center">source/_drafts</td>
+<td align="center">草稿</td>
+</tr>
+</tbody></table>
+<h3 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h3><p>执行下列的命令可以将 <code>layout</code> 为 <code>draft</code> 内的文章移动至 <code>source/_posts</code> 下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br><span class="line">INFO  Published: E:/blog/foolish/<span class="built_in">source</span>/[layout path]]/&lt;year&gt;-&lt;month&gt;-&lt;day&gt;-&lt;title&gt;.md</span><br></pre></td></tr></table></figure>
+
+<h3 id="文章模板-Scaffold"><a href="#文章模板-Scaffold" class="headerlink" title="文章模板(Scaffold)"></a>文章模板(Scaffold)</h3><p>新建文章时，可以通过指定模板名称来新建文件，命令如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] [scaffold name] &lt;title&gt;</span><br><span class="line">INFO  Created: E:/blog/foolish/<span class="built_in">source</span>/[layout path]/&lt;year&gt;-&lt;month&gt;-&lt;day&gt;-&lt;title&gt;.md</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>scaffold name</code> 为 <code>scaffolds/</code> 目录下对应的模板名称。</p>
+<blockquote>
+<p>注意，layout 要在模板名称之前， 否则默认 layout 为 post</p>
+</blockquote>
+<h2 id="主题选择及配置"><a href="#主题选择及配置" class="headerlink" title="主题选择及配置"></a>主题选择及配置</h2><p>本博客选用的主题为 <a href="https://theme-next.org/" target="_blank" rel="noopener">nexT</a>。</p>
+<h3 id="nexT-主题的安装和配置"><a href="#nexT-主题的安装和配置" class="headerlink" title="nexT 主题的安装和配置"></a>nexT 主题的安装和配置</h3><p>本文选择了下载最新的 <code>release</code> 版本，手动配置的方式，实际可以下载git仓库版本等，具体请参考 <a href="https://theme-next.org/" target="_blank" rel="noopener">nexT</a> 文档。</p>
+<p>执行下列命令获取最新的 <code>release</code> 版本，并将下载后主题样式文件放在 Hexo 生成目录的 <code>themes/</code> 文件夹下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> your-blog-path/</span><br><span class="line">$ mkdir themes/next</span><br><span class="line">$ curl -s https://api.github.com/repos/theme-next/hexo-theme-next/releases/latest | grep tarball_url | cut -d <span class="string">'"'</span> -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br><span class="line">...输出下载信息</span><br></pre></td></tr></table></figure>
+
+<p>修改 <a href="https://github.com/zyp461476492/foolish/blob/master/themes/next/_config.yml" target="_blank" rel="noopener"><code>themes/next/_config.yml</code></a> 文件，修改下列内容。更多定制内容可以根据 nexT 的文档</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 页脚设置</span></span><br><span class="line"><span class="attr">footer:</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line"><span class="comment"># 右上角是否展示 github banner 信息</span></span><br><span class="line"><span class="attr">github_banner:</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line"><span class="comment"># 配置首页菜单</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">   <span class="string">...</span></span><br><span class="line"><span class="comment"># 配置展示的社交链接</span></span><br><span class="line"><span class="attr">social:</span></span><br><span class="line">   <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-部署至Github-Pages"><a href="#hexo-部署至Github-Pages" class="headerlink" title="hexo 部署至Github Pages"></a>hexo 部署至Github Pages</h2><p>部署之前，要进行配置，修改 <code>_config.yml</code> 修改下列参数</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;</span> <span class="comment">#https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">[branch]</span> <span class="comment">#published</span></span><br><span class="line"><span class="attr">  message:</span> <span class="string">[message]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>repo 即为仓库地址。</li>
+<li>branch 为部署页面提交至的分支， GitHub 应该设置为 gh-pages。</li>
+<li>message 为提交时的信息，这里默认设置即可。</li>
+</ul>
+<p>如果要配置多个部署环境，参考以下配置方式</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">heroku</span></span><br><span class="line"><span class="attr">  repo:</span></span><br></pre></td></tr></table></figure>
+
+<p>这里我们使用 git 来进行配置，更为详细的配置文档，请参考 hexo 官方文档。</p>
+<p>首先安装 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>随后部署至 GitHub 上，输入下列命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure>
+
+<p>-g 相当于</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>最后进入 GitHub 对应仓库的设置页，开启 GitHub Pages 功能即可，将分支配置为 <code>gh-pages</code>。</p>
+<p>输入 <code>https://yourName.github.io/repository</code> 进行访问。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/foolish/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/foolish/tags/教程/" rel="tag"># 教程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/foolish/2019/06/05/ubuntu-18-04-make-方式安装-redis/" rel="prev" title="ubuntu 18.04 make 方式安装 redis">
+                ubuntu 18.04 make 方式安装 redis <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">无个性</p>
+              <div class="site-description motion-element" itemprop="description">Just do IT!</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/foolish/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/foolish/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/foolish/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zyp461476492" title="GitHub &rarr; https://github.com/zyp461476492" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-配置"><span class="nav-number">2.</span> <span class="nav-text">hexo 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo基础操作"><span class="nav-number">3.</span> <span class="nav-text">Hexo基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发布一篇文章"><span class="nav-number">3.1.</span> <span class="nav-text">发布一篇文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layout"><span class="nav-number">3.2.</span> <span class="nav-text">Layout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#草稿"><span class="nav-number">3.3.</span> <span class="nav-text">草稿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章模板-Scaffold"><span class="nav-number">3.4.</span> <span class="nav-text">文章模板(Scaffold)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题选择及配置"><span class="nav-number">4.</span> <span class="nav-text">主题选择及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nexT-主题的安装和配置"><span class="nav-number">4.1.</span> <span class="nav-text">nexT 主题的安装和配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-部署至Github-Pages"><span class="nav-number">5.</span> <span class="nav-text">hexo 部署至Github Pages</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">无个性</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/foolish/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/foolish/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/foolish/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/foolish/js/utils.js?v=7.2.0"></script>
+
+  <script src="/foolish/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/foolish/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/foolish/js/scrollspy.js?v=7.2.0"></script>
+<script src="/foolish/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/foolish/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
