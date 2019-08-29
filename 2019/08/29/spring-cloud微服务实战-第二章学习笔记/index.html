@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="本地编译安装 redis 后，启动，停止要通过加上路径来执行，如果能以服务的方式进行启动，停止，会方便很多，本文就是介绍如何将 redis 注册为服务。">
-<meta name="keywords" content="redis,linux">
+  <meta name="description" content="spring-cloud 学习笔记，第二章，记录学习中觉得重要的知识点，供个人回顾使用。">
+<meta name="keywords" content="学习笔记,spring,spring cloud,spring boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ubuntu18.04 配置 redis 以 systemctl 方式启动">
-<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/06/06/ubuntu18-04-配置-redis-以-systemctl-方式启动/index.html">
+<meta property="og:title" content="spring-cloud微服务实战 第二章学习笔记">
+<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/08/29/spring-cloud微服务实战-第二章学习笔记/index.html">
 <meta property="og:site_name" content="无个性">
-<meta property="og:description" content="本地编译安装 redis 后，启动，停止要通过加上路径来执行，如果能以服务的方式进行启动，停止，会方便很多，本文就是介绍如何将 redis 注册为服务。">
+<meta property="og:description" content="spring-cloud 学习笔记，第二章，记录学习中觉得重要的知识点，供个人回顾使用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T02:29:33.602Z">
+<meta property="og:updated_time" content="2019-08-29T06:15:55.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ubuntu18.04 配置 redis 以 systemctl 方式启动">
-<meta name="twitter:description" content="本地编译安装 redis 后，启动，停止要通过加上路径来执行，如果能以服务的方式进行启动，停止，会方便很多，本文就是介绍如何将 redis 注册为服务。">
+<meta name="twitter:title" content="spring-cloud微服务实战 第二章学习笔记">
+<meta name="twitter:description" content="spring-cloud 学习笔记，第二章，记录学习中觉得重要的知识点，供个人回顾使用。">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/06/06/ubuntu18-04-配置-redis-以-systemctl-方式启动/">
+  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/08/29/spring-cloud微服务实战-第二章学习笔记/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>ubuntu18.04 配置 redis 以 systemctl 方式启动 | 无个性</title>
+  <title>spring-cloud微服务实战 第二章学习笔记 | 无个性</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/06/06/ubuntu18-04-配置-redis-以-systemctl-方式启动/">
+    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/08/29/spring-cloud微服务实战-第二章学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="无个性">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ubuntu18.04 配置 redis 以 systemctl 方式启动
+          <h1 class="post-title" itemprop="name headline">spring-cloud微服务实战 第二章学习笔记
 
               
             
@@ -333,23 +333,13 @@
                 
               
 
-              <time title="创建时间：2019-06-06 13:59:21" itemprop="dateCreated datePublished" datetime="2019-06-06T13:59:21+08:00">2019-06-06</time>
+              <time title="创建时间：2019-08-29 11:19:34 / 修改时间：14:15:55" itemprop="dateCreated datePublished" datetime="2019-08-29T11:19:34+08:00">2019-08-29</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-29 10:29:33" itemprop="dateModified" datetime="2019-08-29T10:29:33+08:00">2019-08-29</time>
-              </span>
             
           
 
@@ -362,7 +352,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/foolish/categories/redis-liunx/" itemprop="url" rel="index"><span itemprop="name">redis, liunx</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/foolish/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
 
                 
                 
@@ -389,7 +379,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.4k</span>
+              <span title="本文字数">2.6k</span>
             </span>
           
 
@@ -401,7 +391,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -421,24 +411,73 @@
 
       
         <blockquote>
-<p>本地编译安装 redis 后，启动，停止要通过加上路径来执行，如果能以服务的方式进行启动，停止，会方便很多，本文就是介绍如何将 redis 注册为服务。</p>
+<p>spring-cloud 学习笔记，第二章，记录学习中觉得重要的知识点，供个人回顾使用。</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="systemctl-概述"><a href="#systemctl-概述" class="headerlink" title="systemctl 概述"></a>systemctl 概述</h2><p>内核启动第一个用户空间进程是由init开始的，你可以在/sbin目录下找到init，它主要复制启动和</p>
-<p>systemd 是新出现的 init，目前很多发行版的 linux 都已经或计划转入 systemd ，如果你的系统中有 /usr/lib/systemd 或 /etc/systemd 路径，则表示你所安装的系统中已经存在了 systemd 。</p>
-<p>systemd 常见的命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开服务</span></span><br><span class="line">sudo systemctl start service</span><br><span class="line"><span class="comment"># 关闭服务</span></span><br><span class="line">sudo systemctl stop service</span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">sudo systemctl restart service</span><br><span class="line"><span class="comment"># 不中断正常功能下重新加载服务</span></span><br><span class="line">sudo systemctl reload service</span><br><span class="line"><span class="comment"># 设置服务的开机自启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> service</span><br><span class="line"><span class="comment"># 关闭服务的开机自启动</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> service</span><br><span class="line"><span class="comment"># 查看活跃的单元</span></span><br><span class="line">systemctl list-units</span><br><span class="line"><span class="comment"># 查看某个服务的状态</span></span><br><span class="line">systemctl status service</span><br></pre></td></tr></table></figure>
+<h2 id="spring-boot-配置文件"><a href="#spring-boot-配置文件" class="headerlink" title="spring-boot 配置文件"></a>spring-boot 配置文件</h2><p>spring-boot 默认配置文件路径为 /src/main/resources/application.properties，目前实际项目中，一般使用 .yaml 格式文件作为配置文件。</p>
+<p>yaml 采用的格式是类似大纲形式的缩减形式。</p>
+<p>spring-boot 可以自定义参数。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">1234</span></span><br><span class="line"></span><br><span class="line"><span class="attr">book:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="number">123</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="redis-配置-systemctl"><a href="#redis-配置-systemctl" class="headerlink" title="redis 配置 systemctl"></a>redis 配置 systemctl</h2><p>进入 /usr/lib/systemd/system 路径中，创建 redis.service 文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#表示基础信息</span><br><span class="line">[Unit]</span><br><span class="line">#描述</span><br><span class="line">Description=Redis</span><br><span class="line">#在哪个服务之后启动</span><br><span class="line">After=syslog.target network.target remote-fs.target nss-lookup.target</span><br><span class="line"></span><br><span class="line">#表示服务信息</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">#注意：需要和redis.conf配置文件中的信息一致</span><br><span class="line">PIDFile=/var/run/redis_6379.pid</span><br><span class="line">#启动服务的命令</span><br><span class="line">#redis-server安装的路径 和 redis.conf配置文件的路径</span><br><span class="line">ExecStart=/opt/redis/src/redis-server /opt/redis/redis.conf</span><br><span class="line">#重新加载命令</span><br><span class="line">ExecReload=/bin/kill -s HUP $MAINPID</span><br><span class="line">#停止服务的命令</span><br><span class="line">ExecStop=/bin/kill -s QUIT $MAINPID</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">#安装相关信息</span><br><span class="line">[Install]</span><br><span class="line">#以哪种方式启动</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">#multi-user.target表明当系统以多用户方式（默认的运行级别）启动时，这个服务需要被自动运行。</span><br></pre></td></tr></table></figure>
+<p>上述的配置中，我自定义了 book.name = 123 这个自定义属性，此时，如果是用 IDEA 作为开发工具，会提示 “cannot  resolve configuration property ‘book.name’”。</p>
+<p>遇到这种问题，我们需要通过 <a href="https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/reference/html/configuration-metadata.html#configuration-metadata-annotation-processor" target="_blank" rel="noopener">Annotation Processor</a> 生成我们自己的 Metadata </p>
+<p>首先，添加如下的依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>常用命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开机启动</span></span><br><span class="line">systemctl <span class="built_in">enable</span> redis.service</span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">systemctl start redis.service</span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">systemctl restart service.service</span><br><span class="line"><span class="comment"># 停止</span></span><br><span class="line">systemctl stop service.service</span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">systemctl status service.service</span><br></pre></td></tr></table></figure>
+<p>随后在项目的 /src/main/resources/META-INF/ 目录下，新增 additional-spring-configuration-metadata.json 文件，文件内容如下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"properties"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"book.name"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"java.lang.String"</span>,</span><br><span class="line">      <span class="attr">"description"</span>: <span class="string">"Description for book.name."</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://blog.csdn.net/qq_37993487/article/details/79868857" target="_blank" rel="noopener">ubuntu 服务相关命令说明</a></li>
-<li><a href="https://blog.csdn.net/u011389474/article/details/72303156" target="_blank" rel="noopener">redis 配置 systemctl</a></li>
+<p>这样，就完成了自定义参数的定义步骤。随后就可以在 java 代码中，通过 @Value 注解和 PalceHolder （格式为 ${…}）或 SpEl 表达式的方式来注入参数。</p>
+<p>在 spring-boot 配置文件中，可以使用 ${random} 来生成一个随机数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestComponent</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;book.name&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h2><p>在使用命令行的方式启动 spring-boot 应用时，连续的两个减号 – 就是对 application.properties 中的属性进行赋值操作。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 通过命令参数对 server.port 进行赋值</span><br><span class="line">java -jar xxx.jar --server.port=4567</span><br></pre></td></tr></table></figure>
+
+<h2 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h2><p>实际项目，不通环境，例如生产和测试，对应的配置文件都有所不同。在 spring-boot 中，可以对多环境的配置文件进行配置。<br>多环境配置的文件名要满足 application-{profile}.properties 的格式，其中 {profile} 对应环境标识，例如</p>
+<ul>
+<li>application-dev.yaml 开发</li>
+<li>application-test.yaml 测试</li>
+<li>application-prod.yaml 生产</li>
+</ul>
+<h2 id="spring-boot-加载顺序"><a href="#spring-boot-加载顺序" class="headerlink" title="spring-boot 加载顺序"></a>spring-boot 加载顺序</h2><ol>
+<li>命令行传入参数</li>
+<li>SPRING_APPLICATION_JSON 中的属性。SPRING_APPLICATION_JSON 是 JSON 格式配置在系统环境变量中的内容。</li>
+<li>java:comp/evn 中的 JNDI 属性。</li>
+<li>Java的系统属性，可以通过 System.getProperties() 获取的内容。</li>
+<li>操作系统的环境变量。</li>
+<li>通过 random.* 配置的随机属性。</li>
+<li>位于当前应用 jar 包之外，针对不同 {profile} 环境的配置文件内容，例如 application-{profile}.yaml 配置文件。</li>
+<li>位于当前应用 jar 包之内，针对不同 {profile} 环境的配置文件内容，例如 application-{profile}.yaml 配置文件。</li>
+<li>位于当前应用 jar 包之外的 application.yaml 配置文件。</li>
+<li>位于当前应用 jar 包之内的 application.yaml 配置文件。</li>
+<li>在 @Configuration 注解修改的类中，通过 @PropertySource 注解定义的属性。</li>
+<li>应用默认属性，使用 SpringApplication.setDefaultProperties 定义的内容。</li>
+</ol>
+<p>优先级按照上面的顺序从高到低，数字越小优先级越高。</p>
+<h2 id="spring-boot-starter-actuator-概述"><a href="#spring-boot-starter-actuator-概述" class="headerlink" title="spring-boot-starter-actuator 概述"></a>spring-boot-starter-actuator 概述</h2><p>actuator 按照端点的用途，可以将原生端点分为以下三类</p>
+<ul>
+<li>应用配置类：获取应用程序中加载的应用配置，环境变量，自动化配置报告等与 spring boot 应用密切相关的配置类信息。</li>
+<li>度量指标类：获取应用程序运行过程中用于监控的度量指标，比如内存信息，线程池信息，HTTP 请求统计等。</li>
+<li>操作控制类：提供了对应用的关闭等操作类功能。</li>
+</ul>
+<h3 id="应用配置类"><a href="#应用配置类" class="headerlink" title="应用配置类"></a>应用配置类</h3><ul>
+<li>/autoconfig: 该端点用来获取应用的自动化配置报告。</li>
+<li>/beans: 该端点用来获取应用上下文中创建的所有 Bean。</li>
+<li>/configprops: 该端点用来获取应用配置中属性信息报告。</li>
+<li>/env: 该端点和 /configprops 不同，它用来获取应用所有可用的环境属性报告。</li>
+<li>/mappings: 该端点用来返回所有 Spring MVC 的控制器映射关系报告。</li>
+<li>/info: 该端点用来返回一些应用自定义的信息。</li>
+</ul>
+<h3 id="度量指标类"><a href="#度量指标类" class="headerlink" title="度量指标类"></a>度量指标类</h3><ul>
+<li>/metrics: 该端点用来返回当前应用的各类重要度量指标，比如内存信息，线程信息，垃圾回收信息等。</li>
+<li>/health: 该端点用来获取应用的各类健康指标信息。</li>
+<li>/dump: 该端点用来暴露程序运行中的线程信息。</li>
+<li>/trace: 该端点用来返回基本的 HTTP 跟踪信息。</li>
+</ul>
+<h3 id="操作控制类"><a href="#操作控制类" class="headerlink" title="操作控制类"></a>操作控制类</h3><ul>
+<li>/shutdown: 原生端点中只提供了用来关闭应用的端点。</li>
 </ul>
 
       
@@ -466,9 +505,13 @@
         
         <div class="post-tags">
           
-            <a href="/foolish/tags/redis/" rel="tag"># redis</a>
+            <a href="/foolish/tags/学习笔记/" rel="tag"># 学习笔记</a>
           
-            <a href="/foolish/tags/linux/" rel="tag"># linux</a>
+            <a href="/foolish/tags/spring/" rel="tag"># spring</a>
+          
+            <a href="/foolish/tags/spring-cloud/" rel="tag"># spring cloud</a>
+          
+            <a href="/foolish/tags/spring-boot/" rel="tag"># spring boot</a>
           
         </div>
       
@@ -481,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/foolish/2019/06/05/ubuntu-18-04-make-方式安装-redis/" rel="next" title="ubuntu 18.04 make 方式安装 redis">
-                <i class="fa fa-chevron-left"></i> ubuntu 18.04 make 方式安装 redis
+              <a href="/foolish/2019/07/08/es6-学习笔记/" rel="next" title="es6 学习笔记">
+                <i class="fa fa-chevron-left"></i> es6 学习笔记
               </a>
             
           </div>
@@ -490,10 +533,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/foolish/2019/06/10/springboot-管理系统-jwt-认证/" rel="prev" title="springboot 管理系统 jwt 认证">
-                springboot 管理系统 jwt 认证 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -689,7 +728,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#systemctl-概述"><span class="nav-number">1.</span> <span class="nav-text">systemctl 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis-配置-systemctl"><span class="nav-number">2.</span> <span class="nav-text">redis 配置 systemctl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-配置文件"><span class="nav-number">1.</span> <span class="nav-text">spring-boot 配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行参数"><span class="nav-number">2.</span> <span class="nav-text">命令行参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多环境配置"><span class="nav-number">3.</span> <span class="nav-text">多环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-加载顺序"><span class="nav-number">4.</span> <span class="nav-text">spring-boot 加载顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-starter-actuator-概述"><span class="nav-number">5.</span> <span class="nav-text">spring-boot-starter-actuator 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用配置类"><span class="nav-number">5.1.</span> <span class="nav-text">应用配置类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#度量指标类"><span class="nav-number">5.2.</span> <span class="nav-text">度量指标类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作控制类"><span class="nav-number">5.3.</span> <span class="nav-text">操作控制类</span></a></li></ol></li></ol></div>
             
 
           </div>
