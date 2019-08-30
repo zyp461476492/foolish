@@ -433,7 +433,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestComponent</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;book.name&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h2><p>在使用命令行的方式启动 spring-boot 应用时，连续的两个减号 – 就是对 application.properties 中的属性进行赋值操作。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 通过命令参数对 server.port 进行赋值</span><br><span class="line">java -jar xxx.jar --server.port=4567</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 通过命令参数对 server.port 进行赋值</span></span><br><span class="line">java -jar xxx.jar --server.port=4567</span><br></pre></td></tr></table></figure>
 
 <h2 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h2><p>实际项目，不通环境，例如生产和测试，对应的配置文件都有所不同。在 spring-boot 中，可以对多环境的配置文件进行配置。<br>多环境配置的文件名要满足 application-{profile}.properties 的格式，其中 {profile} 对应环境标识，例如</p>
 <ul>
@@ -534,6 +534,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/foolish/2019/08/30/spring-cloud微服务实战-第三章学习笔记/" rel="prev" title="spring-cloud微服务实战-第三章学习笔记">
+                spring-cloud微服务实战-第三章学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -601,7 +605,7 @@
                 
                   <a href="/foolish/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

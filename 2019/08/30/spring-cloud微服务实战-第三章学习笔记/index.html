@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="以本地编译的方式，在 ubuntu 18.04 环境下部署 redis">
-<meta name="keywords" content="redis,linux,ubuntu">
+  <meta name="description" content="spring-cloud 学习笔记，第三章，介绍了 eureka 相关内容 ，记录笔记，供个人回顾使用。">
+<meta name="keywords" content="学习笔记,spring,spring cloud,spring boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ubuntu 18.04 make 方式安装 redis">
-<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/06/05/ubuntu-18-04-make-方式安装-redis/index.html">
+<meta property="og:title" content="spring-cloud微服务实战-第三章学习笔记">
+<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/08/30/spring-cloud微服务实战-第三章学习笔记/index.html">
 <meta property="og:site_name" content="无个性">
-<meta property="og:description" content="以本地编译的方式，在 ubuntu 18.04 环境下部署 redis">
+<meta property="og:description" content="spring-cloud 学习笔记，第三章，介绍了 eureka 相关内容 ，记录笔记，供个人回顾使用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T02:29:33.601Z">
+<meta property="og:updated_time" content="2019-08-30T07:36:36.857Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ubuntu 18.04 make 方式安装 redis">
-<meta name="twitter:description" content="以本地编译的方式，在 ubuntu 18.04 环境下部署 redis">
+<meta name="twitter:title" content="spring-cloud微服务实战-第三章学习笔记">
+<meta name="twitter:description" content="spring-cloud 学习笔记，第三章，介绍了 eureka 相关内容 ，记录笔记，供个人回顾使用。">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/06/05/ubuntu-18-04-make-方式安装-redis/">
+  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/08/30/spring-cloud微服务实战-第三章学习笔记/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>ubuntu 18.04 make 方式安装 redis | 无个性</title>
+  <title>spring-cloud微服务实战-第三章学习笔记 | 无个性</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/06/05/ubuntu-18-04-make-方式安装-redis/">
+    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/08/30/spring-cloud微服务实战-第三章学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="无个性">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ubuntu 18.04 make 方式安装 redis
+          <h1 class="post-title" itemprop="name headline">spring-cloud微服务实战-第三章学习笔记
 
               
             
@@ -333,23 +333,13 @@
                 
               
 
-              <time title="创建时间：2019-06-05 13:57:00" itemprop="dateCreated datePublished" datetime="2019-06-05T13:57:00+08:00">2019-06-05</time>
+              <time title="创建时间：2019-08-30 15:14:47 / 修改时间：15:36:36" itemprop="dateCreated datePublished" datetime="2019-08-30T15:14:47+08:00">2019-08-30</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-29 10:29:33" itemprop="dateModified" datetime="2019-08-29T10:29:33+08:00">2019-08-29</time>
-              </span>
             
           
 
@@ -362,7 +352,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/foolish/categories/redis-linux/" itemprop="url" rel="index"><span itemprop="name">redis, linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/foolish/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
 
                 
                 
@@ -389,7 +379,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.3k</span>
+              <span title="本文字数">3.1k</span>
             </span>
           
 
@@ -401,7 +391,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -421,28 +411,35 @@
 
       
         <blockquote>
-<p>以本地编译的方式，在 ubuntu 18.04 环境下部署 redis</p>
+<p>spring-cloud 学习笔记，第三章，介绍了 eureka 相关内容 ，记录笔记，供个人回顾使用。</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="下载及编译"><a href="#下载及编译" class="headerlink" title="下载及编译"></a>下载及编译</h2><p>参考官网教程，执行如下命令来进行 redis 本地编译。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz</span><br><span class="line">$ tar xzf redis-5.0.5.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> redis-5.0.5</span><br><span class="line">$ make</span><br><span class="line"><span class="built_in">print</span> some tips ...</span><br></pre></td></tr></table></figure>
+<h2 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h2><p>spring-cloud-eureka,使用了 Netflix Eureka 来实现服务注册与发现，它即包含了服务端组件，也包含了客户端组件。</p>
+<ul>
+<li>eureka-服务端：也可以称作服务注册中心，它同其他的服务注册中心一样，支持高可用配置。主要功能有，服务注册，服务续约，服务下线等。</li>
+<li>eureka-客户端，处理服务的注册和发现，eureka客户端向注册中心注册自身服务，并周期性的发送心跳来更新它的服务租约。同时，它也可以从服务端查询当前注册的信息并缓存本地周期性的刷新服务状态。</li>
+</ul>
+<h2 id="搭建-eureka-服务注册中心"><a href="#搭建-eureka-服务注册中心" class="headerlink" title="搭建 eureka 服务注册中心"></a>搭建 eureka 服务注册中心</h2><p>pom.xml 中添加如下的依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">spring-cloud.version</span>&gt;</span>Greenwich.SR2<span class="tag">&lt;/<span class="name">spring-cloud.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="遇到问题即解决方式"><a href="#遇到问题即解决方式" class="headerlink" title="遇到问题即解决方式"></a>遇到问题即解决方式</h2><p>如果出现下列的错误提示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> src &amp;&amp; make all</span><br><span class="line">make[1]: Entering directory <span class="string">'/home/ubuntu/redis-x.x.xx/src'</span></span><br><span class="line">    CC adlist.o</span><br><span class="line">/bin/sh: 1: cc: not found</span><br><span class="line">Makefile:228: recipe <span class="keyword">for</span> target <span class="string">'adlist.o'</span> failed</span><br><span class="line">make[1]: *** [adlist.o] Error 127</span><br><span class="line">make[1]: Leaving directory <span class="string">'/home/ubuntu/redis-x.x.xx/src'</span></span><br><span class="line">Makefile:6: recipe <span class="keyword">for</span> target <span class="string">'all'</span> failed</span><br><span class="line">make: *** [all] Error 2</span><br></pre></td></tr></table></figure>
+<p>通过 @EnableEurekaServer 注解启动一个服务注册中心。</p>
+<p>服务注册中心常用配置选项</p>
+<ul>
+<li>eureka.instance.hostname 主机名称</li>
+<li>eureka.client.regiter-with-eureka [true/false] 是否将自身注册到服务注册中心</li>
+<li>eureka.client.fetch-registry [true/false] 是否检索注册信息</li>
+</ul>
+<h2 id="注册一个-eureka-client-服务提供者"><a href="#注册一个-eureka-client-服务提供者" class="headerlink" title="注册一个 eureka-client 服务提供者"></a>注册一个 eureka-client 服务提供者</h2><p>pom.xml 加入如下依赖，其中 web 是为了测试，实际可根据需求来增加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">spring-cloud.version</span>&gt;</span>Greenwich.SR2<span class="tag">&lt;/<span class="name">spring-cloud.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>说明没有安装 gcc ，输入下列的命令安装 gcc 即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc</span><br></pre></td></tr></table></figure>
-
-<p>上述问题解决后，如果出现下列的错误提示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> src &amp;&amp; make all</span><br><span class="line">make[1]: Entering directory <span class="string">'/home/ubuntu/redis-4.0.11/src'</span></span><br><span class="line">    CC adlist.o</span><br><span class="line">In file included from adlist.c:34:0:</span><br><span class="line">zmalloc.h:50:10: fatal error: jemalloc/jemalloc.h: No such file or directory</span><br><span class="line"> <span class="comment">#include &lt;jemalloc/jemalloc.h&gt;</span></span><br><span class="line">          ^~~~~~~~~~~~~~~~~~~~~</span><br><span class="line">compilation terminated.</span><br><span class="line">Makefile:228: recipe <span class="keyword">for</span> target <span class="string">'adlist.o'</span> failed</span><br><span class="line">make[1]: *** [adlist.o] Error 1</span><br><span class="line">make[1]: Leaving directory <span class="string">'/home/ubuntu/redis-4.0.11/src'</span></span><br></pre></td></tr></table></figure>
-
-<p>则可通过下列命令来解决：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make MALLOC=libc</span><br></pre></td></tr></table></figure>
-
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>按照官网的提示，输入下列命令启动:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">zyp@DESKTOP-CI621JQ:~/redis-5.0.5$ src/redis-server</span><br><span class="line">5509:C 05 Jun 2019 11:53:36.175 <span class="comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span></span><br><span class="line">5509:C 05 Jun 2019 11:53:36.175 <span class="comment"># Redis version=5.0.5, bits=64, commit=00000000, modified=0, pid=5509, just started</span></span><br><span class="line">5509:C 05 Jun 2019 11:53:36.175 <span class="comment"># Warning: no config file specified, using the default config. In order to specify a config</span></span><br><span class="line">5509:M 05 Jun 2019 11:53:36.175 * Increased maximum number of open files to 10032 (it was originally <span class="built_in">set</span> to 1024).</span><br><span class="line">                _._</span><br><span class="line">           _.-``__ <span class="string">''</span>-._</span><br><span class="line">      _.-``    `.  `_.  <span class="string">''</span>-._           Redis 5.0.5 (00000000/0) 64 bit</span><br><span class="line">  .-`` .-```.  ```\/    _.,_ <span class="string">''</span>-._</span><br><span class="line"> (    <span class="string">'      ,       .-`  | `,    )     Running in standalone mode</span></span><br><span class="line"><span class="string"> |`-._`-...-` __...-.``-._|'</span>` _.-<span class="string">'|     Port: 6379</span></span><br><span class="line"><span class="string"> |    `-._   `._    /     _.-'</span>    |     PID: 5509</span><br><span class="line">  `-._    `-._  `-./  _.-<span class="string">'    _.-'</span></span><br><span class="line"> |`-._`-._    `-.__.-<span class="string">'    _.-'</span>_.-<span class="string">'|</span></span><br><span class="line"><span class="string"> |    `-._`-._        _.-'</span>_.-<span class="string">'    |           http://redis.io</span></span><br><span class="line"><span class="string">  `-._    `-._`-.__.-'</span>_.-<span class="string">'    _.-'</span></span><br><span class="line"> |`-._`-._    `-.__.-<span class="string">'    _.-'</span>_.-<span class="string">'|</span></span><br><span class="line"><span class="string"> |    `-._`-._        _.-'</span>_.-<span class="string">'    |</span></span><br><span class="line"><span class="string">  `-._    `-._`-.__.-'</span>_.-<span class="string">'    _.-'</span></span><br><span class="line">      `-._    `-.__.-<span class="string">'    _.-'</span></span><br><span class="line">          `-._        _.-<span class="string">'</span></span><br><span class="line"><span class="string">              `-.__.-'</span></span><br></pre></td></tr></table></figure>
-
+<p>在启动类添加 @EnableDiscoveryClient 注解来开启服务提供功能。</p>
+<p>eureka 服务提供者常用配置</p>
+<ul>
+<li>spring.application.name = xxx 应用名称</li>
+<li>eureka.client.serviceUrl.defaultZone = <a href="http://xxxx:port/eureka/" target="_blank" rel="noopener">http://xxxx:port/eureka/</a> 服务注册中心地址</li>
+</ul>
+<p>启动后，就构建了一个服务提供者。</p>
 
       
     </div>
@@ -469,11 +466,13 @@
         
         <div class="post-tags">
           
-            <a href="/foolish/tags/redis/" rel="tag"># redis</a>
+            <a href="/foolish/tags/学习笔记/" rel="tag"># 学习笔记</a>
           
-            <a href="/foolish/tags/linux/" rel="tag"># linux</a>
+            <a href="/foolish/tags/spring/" rel="tag"># spring</a>
           
-            <a href="/foolish/tags/ubuntu/" rel="tag"># ubuntu</a>
+            <a href="/foolish/tags/spring-cloud/" rel="tag"># spring cloud</a>
+          
+            <a href="/foolish/tags/spring-boot/" rel="tag"># spring boot</a>
           
         </div>
       
@@ -486,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/foolish/2019/04/10/Hexo-+-Github-Page-搭建个人博客/" rel="next" title="Hexo + Github Page 搭建个人博客">
-                <i class="fa fa-chevron-left"></i> Hexo + Github Page 搭建个人博客
+              <a href="/foolish/2019/08/29/spring-cloud微服务实战-第二章学习笔记/" rel="next" title="spring-cloud微服务实战 第二章学习笔记">
+                <i class="fa fa-chevron-left"></i> spring-cloud微服务实战 第二章学习笔记
               </a>
             
           </div>
@@ -495,10 +494,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/foolish/2019/06/06/ubuntu18-04-配置-redis-以-systemctl-方式启动/" rel="prev" title="ubuntu18.04 配置 redis 以 systemctl 方式启动">
-                ubuntu18.04 配置 redis 以 systemctl 方式启动 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -694,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载及编译"><span class="nav-number">1.</span> <span class="nav-text">下载及编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到问题即解决方式"><span class="nav-number">2.</span> <span class="nav-text">遇到问题即解决方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行"><span class="nav-number">3.</span> <span class="nav-text">运行</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务治理"><span class="nav-number">1.</span> <span class="nav-text">服务治理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建-eureka-服务注册中心"><span class="nav-number">2.</span> <span class="nav-text">搭建 eureka 服务注册中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册一个-eureka-client-服务提供者"><span class="nav-number">3.</span> <span class="nav-text">注册一个 eureka-client 服务提供者</span></a></li></ol></div>
             
 
           </div>
