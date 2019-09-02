@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="无个性">
 <meta property="og:description" content="spring-cloud 学习笔记，第三章，介绍了 eureka 相关内容 ，记录笔记，供个人回顾使用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-30T07:36:36.857Z">
+<meta property="og:updated_time" content="2019-09-02T03:04:14.251Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring-cloud微服务实战-第三章学习笔记">
 <meta name="twitter:description" content="spring-cloud 学习笔记，第三章，介绍了 eureka 相关内容 ，记录笔记，供个人回顾使用。">
@@ -333,13 +333,23 @@
                 
               
 
-              <time title="创建时间：2019-08-30 15:14:47 / 修改时间：15:36:36" itemprop="dateCreated datePublished" datetime="2019-08-30T15:14:47+08:00">2019-08-30</time>
+              <time title="创建时间：2019-08-30 15:14:47" itemprop="dateCreated datePublished" datetime="2019-08-30T15:14:47+08:00">2019-08-30</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-02 11:04:14" itemprop="dateModified" datetime="2019-09-02T11:04:14+08:00">2019-09-02</time>
+              </span>
             
           
 
@@ -379,7 +389,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">3.1k</span>
+              <span title="本文字数">4.4k</span>
             </span>
           
 
@@ -391,7 +401,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">3 分钟</span>
+              <span title="阅读时长">4 分钟</span>
             </span>
           
 
@@ -440,6 +450,24 @@
 <li>eureka.client.serviceUrl.defaultZone = <a href="http://xxxx:port/eureka/" target="_blank" rel="noopener">http://xxxx:port/eureka/</a> 服务注册中心地址</li>
 </ul>
 <p>启动后，就构建了一个服务提供者。</p>
+<h2 id="服务治理机制"><a href="#服务治理机制" class="headerlink" title="服务治理机制"></a>服务治理机制</h2><h3 id="服务提供者-服务注册"><a href="#服务提供者-服务注册" class="headerlink" title="服务提供者-服务注册"></a>服务提供者-服务注册</h3><p>服务提供者在启动时，会通过 REST 请求的方式，讲自己注册到 Eureka Server 上，并携带一些元数据信息。Eureka Server 再接收到 REST 请求后，会将元数据存储在一个双层的 Map 中，其中第一层 key 是服务名，第二层的 key 是具体服务的实例名称。</p>
+<p>同时，服务注册前，要确保 eureka.client.register-with-eureka = true 从而开启自动注册功能。</p>
+<h3 id="服务提供者-服务同步"><a href="#服务提供者-服务同步" class="headerlink" title="服务提供者-服务同步"></a>服务提供者-服务同步</h3><p>服务提供者在 eureka server 进行注册时，通过服务同步，服务注册中心会将该请求转发给集群中相连接的其他注册中心，从而实现注册同步。</p>
+<h3 id="服务提供者-服务续约"><a href="#服务提供者-服务续约" class="headerlink" title="服务提供者-服务续约"></a>服务提供者-服务续约</h3><p>注册完服务后，服务提供者会维护一个心跳来持续告诉 eureka server 服务存活的信息，通过心跳来避免 eureka server 将服务实例剔除。</p>
+<p>主要通过下列两个参数进行配置，调整</p>
+<ul>
+<li>eureka.instance.lease-renewwal-interval-in-seconds = 30 # 心跳间隔</li>
+<li>eureka.instance.lease-expiratition-duration-in-seconds = 90  # 服务过期间隔</li>
+</ul>
+<h3 id="服务消费者-获取服务"><a href="#服务消费者-获取服务" class="headerlink" title="服务消费者-获取服务"></a>服务消费者-获取服务</h3><p>启动服务消费者时，它会发送 REST 请求给服务注册中心，来获取上面注册的服务请求。为了性能考虑，eureka server 会维护一份可读的服务清单返回给客户端，同时该缓存清单每隔30秒更新一次。</p>
+<p>通过设置 eureka.client.fetch-regitsry = true 来设置可以获取服务，如果是false ，则消费者无法进行获取服务。</p>
+<p>通过设置 eureka.client.registry-fetch-interval-seconds = 30 来设置服务获取的间隔</p>
+<h3 id="服务消费者-服务调用"><a href="#服务消费者-服务调用" class="headerlink" title="服务消费者-服务调用"></a>服务消费者-服务调用</h3><p>服务消费者获取服务清单后，通过服务名来获取具体提供服务的实例名和该实例名对应的元数据。根据这些信息，消费者来决定具体调用那些实例。</p>
+<p>对于访问实例的选择，eureka 中有 region 和 zone 的概念，一个 region 中可以包含多个 Zone ，每个服务客户端需要被注册到一个 Zone 中，所以每一个客户端对应一个 region 和 一个 zone 。</p>
+<p>进行服务调用时，优先访问同一个 zone 中的服务提供方。若访问不到，就访问其他的 zone。</p>
+<h3 id="服务注册中心-失效剔除"><a href="#服务注册中心-失效剔除" class="headerlink" title="服务注册中心-失效剔除"></a>服务注册中心-失效剔除</h3><p>eureka-server 在启动时会执行一个定时任务，默认每隔一段时间（60S），去剔除清单中超时（默认90S）没有续约的服务。</p>
+<h3 id="服务注册中心-自我保护"><a href="#服务注册中心-自我保护" class="headerlink" title="服务注册中心-自我保护"></a>服务注册中心-自我保护</h3><p>eureka-server 在运行期间，会统计心跳失败的比例在15分钟之内是否低于85%，如果出现低于的情况，会将当前的实例注册信息保护起来，让这些实例不会过期。</p>
+<p>这样会引发一个问题，如果保护期间内，这些实例出现问题，客户端很容易拿到实际已经不存在的服务器实例，会出现调用失败的现象，所以客户端要必须要有对应的容错机制。</p>
 
       
     </div>
@@ -689,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务治理"><span class="nav-number">1.</span> <span class="nav-text">服务治理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建-eureka-服务注册中心"><span class="nav-number">2.</span> <span class="nav-text">搭建 eureka 服务注册中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册一个-eureka-client-服务提供者"><span class="nav-number">3.</span> <span class="nav-text">注册一个 eureka-client 服务提供者</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务治理"><span class="nav-number">1.</span> <span class="nav-text">服务治理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建-eureka-服务注册中心"><span class="nav-number">2.</span> <span class="nav-text">搭建 eureka 服务注册中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册一个-eureka-client-服务提供者"><span class="nav-number">3.</span> <span class="nav-text">注册一个 eureka-client 服务提供者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务治理机制"><span class="nav-number">4.</span> <span class="nav-text">服务治理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务提供者-服务注册"><span class="nav-number">4.1.</span> <span class="nav-text">服务提供者-服务注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务提供者-服务同步"><span class="nav-number">4.2.</span> <span class="nav-text">服务提供者-服务同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务提供者-服务续约"><span class="nav-number">4.3.</span> <span class="nav-text">服务提供者-服务续约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务消费者-获取服务"><span class="nav-number">4.4.</span> <span class="nav-text">服务消费者-获取服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务消费者-服务调用"><span class="nav-number">4.5.</span> <span class="nav-text">服务消费者-服务调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务注册中心-失效剔除"><span class="nav-number">4.6.</span> <span class="nav-text">服务注册中心-失效剔除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务注册中心-自我保护"><span class="nav-number">4.7.</span> <span class="nav-text">服务注册中心-自我保护</span></a></li></ol></li></ol></div>
             
 
           </div>
