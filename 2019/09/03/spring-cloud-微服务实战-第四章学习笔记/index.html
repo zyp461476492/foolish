@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/foolish/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/foolish/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/foolish/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/foolish/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/foolish/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/foolish/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/foolish/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-ribbon 相关内容 ，记录笔记，供个人回顾使用。">
+<meta name="keywords" content="学习笔记,spring,spring cloud,spring boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-cloud-微服务实战-第四章学习笔记">
+<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/09/03/spring-cloud-微服务实战-第四章学习笔记/index.html">
+<meta property="og:site_name" content="无个性">
+<meta property="og:description" content="spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-ribbon 相关内容 ，记录笔记，供个人回顾使用。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-06T06:56:53.319Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-cloud-微服务实战-第四章学习笔记">
+<meta name="twitter:description" content="spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-ribbon 相关内容 ，记录笔记，供个人回顾使用。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/09/03/spring-cloud-微服务实战-第四章学习笔记/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>spring-cloud-微服务实战-第四章学习笔记 | 无个性</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/foolish/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">无个性</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">One·for·All</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/foolish/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/foolish/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/09/03/spring-cloud-微服务实战-第四章学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无个性">
+      <meta itemprop="description" content="Just do IT!">
+      <meta itemprop="image" content="/foolish/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无个性">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spring-cloud-微服务实战-第四章学习笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-03 09:33:01" itemprop="dateCreated datePublished" datetime="2019-09-03T09:33:01+08:00">2019-09-03</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-06 14:56:53" itemprop="dateModified" datetime="2019-09-06T14:56:53+08:00">2019-09-06</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/foolish/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">12k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">11 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-ribbon 相关内容 ，记录笔记，供个人回顾使用。</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="RestTemplate-详解"><a href="#RestTemplate-详解" class="headerlink" title="RestTemplate 详解"></a>RestTemplate 详解</h2><p>目前理解功能是封装的通过 REST 远程访问经过 eureka 负载均衡的 spring 服务。</p>
+<p>对于 HTTP 的 GET,POST,PUT,DELETE 等均有对应实现。</p>
+<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><p>@LoadBalanced 注解的作用是标记一个 RestTemplate Bean , 用 LoadBalancerClient 来对它进行配置。</p>
+<p>LoadBalancerClient 是 org.springframework.cloud.client.loadbalancer 下的一个接口，它提供了三个方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 使用来自 LoadBalancer 的 ServiceInstance 来执行请求对于指定的服务。</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> serviceId 待查找 LoadBalancer 的 serviceId</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> request 提供给实现者用于执行前和执行后的一些动作配置，比如新增 metrics 监控点等。</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> 对于选择的 ServiceInstance 的 LoadBalancerRequest 请求结果。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">&lt;T&gt; <span class="function">T <span class="title">execute</span><span class="params">(String serviceId, LoadBalancerRequest&lt;T&gt; request)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"></span><br><span class="line">&lt;T&gt; <span class="function">T <span class="title">execute</span><span class="params">(String serviceId, ServiceInstance serviceInstance,</span></span></span><br><span class="line"><span class="function"><span class="params">        LoadBalancerRequest&lt;T&gt; request)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 构建一个合适的 HOST:PORT 的 URI 给分布式系统使用。</span></span><br><span class="line"><span class="comment">* 有些系统会使用逻辑服务名作为 HOST，例如 http://myservice/path/to/service。</span></span><br><span class="line"><span class="comment">* 这个方法会用ServiceInstance的 HOST:PORT 来替换上述的 URI。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">URI <span class="title">reconstructURI</span><span class="params">(ServiceInstance instance, URI original)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>LoadBalancerAutoConfiguration 是 org.springframework.cloud.client.loadbalancer 包下的，为了实现客户端负载均衡的自动化配置类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(RestTemplate.class)</span><br><span class="line"><span class="meta">@ConditionalOnBean</span>(LoadBalancerClient.class)</span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(LoadBalancerRetryProperties.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoadBalancerAutoConfiguration</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@ConditionalOnClass, 指定类位于 classpath 时，匹配成功</p>
+<p>@ConditionalOnBean，当所有依赖的 bean 已经存在于 BeanFactory 容器中时，匹配成功。</p>
+<p>@ConditionalOnMissingBean 当前 bean 不存在 BeanFactory 中时，匹配成功。</p>
+<p>@EnableConfigurationProperties 开启可以通过 ConfigurationProperties 的注解 bean 来对自动配置文件进行配置</p>
+<p>所以 LoadBalancerAutoConfiguration，在 classpath 下有 RestTemplate.class 和 BeanFactory 存在 LoadBalancerClient 时，自动启用。同时，支持通过 LoadBalancerRetryProperties 类来对配置内容进行修改。</p>
+<p>继续看源码,下面的配置是当缺少 RetryTemplate.class 时，进行配置的一些内容。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 当不存在 LoadBalancerRequestFactory 时，会向 BeanFactory 中注册一个 LoadBalancerRequestFactory 类</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@ConditionalOnMissingBean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> LoadBalancerRequestFactory <span class="title">loadBalancerRequestFactory</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        LoadBalancerClient loadBalancerClient)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> LoadBalancerRequestFactory(loadBalancerClient, <span class="keyword">this</span>.transformers);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* classpath 缺少 RestTemplate.class 时，会注册 LoadBalancerInterceptor</span></span><br><span class="line"><span class="comment">* classpath 缺少 RestTemplate.class 且不存在 RestTemplateCustomizer ，会注册 RestTemplateCustomizer</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnMissingClass</span>(<span class="string">"org.springframework.retry.support.RetryTemplate"</span>)</span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">LoadBalancerInterceptorConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LoadBalancerInterceptor <span class="title">ribbonInterceptor</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            LoadBalancerClient loadBalancerClient,</span></span></span><br><span class="line"><span class="function"><span class="params">            LoadBalancerRequestFactory requestFactory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> LoadBalancerInterceptor(loadBalancerClient, requestFactory);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConditionalOnMissingBean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RestTemplateCustomizer <span class="title">restTemplateCustomizer</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            <span class="keyword">final</span> LoadBalancerInterceptor loadBalancerInterceptor)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> restTemplate -&gt; &#123;</span><br><span class="line">            List&lt;ClientHttpRequestInterceptor&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;(</span><br><span class="line">                    restTemplate.getInterceptors());</span><br><span class="line">            list.add(loadBalancerInterceptor);</span><br><span class="line">            restTemplate.setInterceptors(list);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 后面一些 RetryTemplate.class 相关的配置类暂时省略</span></span><br></pre></td></tr></table></figure>
+
+<p>下面，查看 LoadBalancerInterceptor 拦截器如何将一个普通的 RestTemplate 变成客户端负载均衡的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ClientHttpResponse <span class="title">intercept</span><span class="params">(<span class="keyword">final</span> HttpRequest request, <span class="keyword">final</span> <span class="keyword">byte</span>[] body,</span></span></span><br><span class="line"><span class="function"><span class="params">        <span class="keyword">final</span> ClientHttpRequestExecution execution)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> URI originalUri = request.getURI();</span><br><span class="line">    String serviceName = originalUri.getHost();</span><br><span class="line">    Assert.state(serviceName != <span class="keyword">null</span>,</span><br><span class="line">            <span class="string">"Request URI does not contain a valid hostname: "</span> + originalUri);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.loadBalancer.execute(serviceName,</span><br><span class="line">            <span class="keyword">this</span>.requestFactory.createRequest(request, body, execution));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之前也提到过，RestTemplate 的 host 为服务名，所以通过 URI 获取的 host 就是 service 的服务名。负载均衡，通过 serviceName 选择实例，并发起请求。</p>
+<p>接下来，我们查看一下 ribbo 对于 LoadBalancerClient 的具体实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">execute</span><span class="params">(String serviceId, LoadBalancerRequest&lt;T&gt; request, Object hint)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ILoadBalancer loadBalancer = getLoadBalancer(serviceId);</span><br><span class="line">        Server server = getServer(loadBalancer, hint);</span><br><span class="line">        <span class="keyword">if</span> (server == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"No instances available for "</span> + serviceId);</span><br><span class="line">        &#125;</span><br><span class="line">        RibbonServer ribbonServer = <span class="keyword">new</span> RibbonServer(serviceId, server,</span><br><span class="line">                isSecure(server, serviceId),</span><br><span class="line">                serverIntrospector(serviceId).getMetadata(server));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> execute(serviceId, ribbonServer, request);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>新加入了一个 hint 来和 execute(serviceId, ServiceInstance, request) 区分，默认 hint 传递的是 null。</p>
+<p>开始会通过 getServer 来获取 server。代码如下,这里通过 com.netflix.loadbalancer 的 ILoadBalancer 来选择 server</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> Server <span class="title">getServer</span><span class="params">(ILoadBalancer loadBalancer, Object hint)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (loadBalancer == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Use 'default' on a null hint, or just pass it on?</span></span><br><span class="line">        <span class="keyword">return</span> loadBalancer.chooseServer(hint != <span class="keyword">null</span> ? hint : <span class="string">"default"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>ILoadBalancer 接口提供了下列方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ILoadBalancer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addServers</span><span class="params">(List&lt;Server&gt; newServers)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Server <span class="title">chooseServer</span><span class="params">(Object key)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">markServerDown</span><span class="params">(Server server)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Server&gt; <span class="title">getReachableServers</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Server&gt; <span class="title">getAllServers</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过查看 RibbonClientConfiguration 可以发现，Ribbon 用 ZoneAwareLoadBalancer 来默认实现 ILoadBalancer 来实现负载均衡器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConditionalOnMissingBean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ILoadBalancer <span class="title">ribbonLoadBalancer</span><span class="params">(IClientConfig config,</span></span></span><br><span class="line"><span class="function"><span class="params">            ServerList&lt;Server&gt; serverList, ServerListFilter&lt;Server&gt; serverListFilter,</span></span></span><br><span class="line"><span class="function"><span class="params">            IRule rule, IPing ping, ServerListUpdater serverListUpdater)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.propertiesFactory.isSet(ILoadBalancer.class, name)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.propertiesFactory.get(ILoadBalancer.class, config, name);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ZoneAwareLoadBalancer&lt;&gt;(config, rule, ping, serverList,</span><br><span class="line">                serverListFilter, serverListUpdater);</span><br><span class="line">    &#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<p>在通过 ILoadBalancer 来获取到 server 后，将 server 包装成了 RibbonServer , 随后获取了 serviceId 对应的 负载均衡的上下文，记录了状态，再回调 LoadBalancerRequest 的 apply 方法进行处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">execute</span><span class="params">(String serviceId, ServiceInstance serviceInstance,</span></span></span><br><span class="line"><span class="function"><span class="params">            LoadBalancerRequest&lt;T&gt; request)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Server server = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (serviceInstance <span class="keyword">instanceof</span> RibbonServer) &#123;</span><br><span class="line">            server = ((RibbonServer) serviceInstance).getServer();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (server == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"No instances available for "</span> + serviceId);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        RibbonLoadBalancerContext context = <span class="keyword">this</span>.clientFactory</span><br><span class="line">                .getLoadBalancerContext(serviceId);</span><br><span class="line">        RibbonStatsRecorder statsRecorder = <span class="keyword">new</span> RibbonStatsRecorder(context, server);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            T returnVal = request.apply(serviceInstance);</span><br><span class="line">            statsRecorder.recordStats(returnVal);</span><br><span class="line">            <span class="keyword">return</span> returnVal;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// catch IOException and rethrow so RestTemplate behaves correctly</span></span><br><span class="line">        <span class="keyword">catch</span> (IOException ex) &#123;</span><br><span class="line">            statsRecorder.recordStats(ex);</span><br><span class="line">            <span class="keyword">throw</span> ex;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">            statsRecorder.recordStats(ex);</span><br><span class="line">            ReflectionUtils.rethrowRuntimeException(ex);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>传入 apply 的 ServiceInstance 是对服务实例的抽象定义，在该接口中暴露出了每个服务实例需要的基本信息，例如 serviceId, host, port 等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ServiceInstance</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> String <span class="title">getInstanceId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">getServiceId</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">getHost</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getPort</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isSecure</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">URI <span class="title">getUri</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Map&lt;String, String&gt; <span class="title">getMetadata</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> String <span class="title">getScheme</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到这里，重新整理一下逻辑。</p>
+<p>在 LoadBalancerAutoConfiguration 中，通过 LoadBalancerInterceptor bean 来拦截负载均衡的 RestTemplate 请求，从而达到负载均衡的效果。</p>
+<p>LoadBalancerInterceptor 是由 LoadBalancerClient 和 LoadBalancerRequestFactory 两个参数生成。</p>
+<ul>
+<li>LoadBalancerClient 主要功能是执行请求，上文也分析了 excute 方法。</li>
+<li>LoadBalancerRequestFactory 是用来构造 LoadBalancerRequest 请求对象。</li>
+</ul>
+<p>现在分析一下 LoadBalancerRequestFactory, 该对象由一个 LoadBalancerClient 对象和一个 <figure class="highlight plain"><figcaption><span>生成。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```java</span><br><span class="line">public LoadBalancerRequestFactory(LoadBalancerClient loadBalancer,</span><br><span class="line">            List&lt;LoadBalancerRequestTransformer&gt; transformers) &#123;</span><br><span class="line">        this.loadBalancer = loadBalancer;</span><br><span class="line">        this.transformers = transformers;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>LoadBalancerRequestTransformer 的主要功能就是传递负载均衡的 HttpRequest 给指定的 ServiceInstance。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Order</span>(LoadBalancerRequestTransformer.DEFAULT_ORDER)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">LoadBalancerRequestTransformer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Order for the load balancer request tranformer.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">int</span> DEFAULT_ORDER = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">HttpRequest <span class="title">transformRequest</span><span class="params">(HttpRequest request, ServiceInstance instance)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着看 LoadBalancerRequestFactory，其中核心的方法是 createRequest 方法，目的是生成一个 LoadBalancerRequest 对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LoadBalancerRequest&lt;ClientHttpResponse&gt; <span class="title">createRequest</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            <span class="keyword">final</span> HttpRequest request, <span class="keyword">final</span> <span class="keyword">byte</span>[] body,</span></span></span><br><span class="line"><span class="function"><span class="params">            <span class="keyword">final</span> ClientHttpRequestExecution execution)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance -&gt; &#123;</span><br><span class="line">            HttpRequest serviceRequest = <span class="keyword">new</span> ServiceRequestWrapper(request, instance,</span><br><span class="line">                    <span class="keyword">this</span>.loadBalancer);</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.transformers != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (LoadBalancerRequestTransformer transformer : <span class="keyword">this</span>.transformers) &#123;</span><br><span class="line">                    serviceRequest = transformer.transformRequest(serviceRequest,</span><br><span class="line">                            instance);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> execution.execute(serviceRequest, body);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里通过 ServiceRequestWrapper 来包装 request 和 serviceInstance，来看下 ServiceRequest 方法，构造的时候要传入 LoadBalancerClient 对象，通过调 this.loadBalancer.reconstructURI 来对 URI 进行重构。同时，该对象继承了 HttpRequestWrapper ，最后就可以生成一个 HttpRequest 对象，到这里，就把请求转换为了 HttpRequest。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServiceRequestWrapper</span> <span class="keyword">extends</span> <span class="title">HttpRequestWrapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ServiceInstance instance;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> LoadBalancerClient loadBalancer;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ServiceRequestWrapper</span><span class="params">(HttpRequest request, ServiceInstance instance,</span></span></span><br><span class="line"><span class="function"><span class="params">            LoadBalancerClient loadBalancer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(request);</span><br><span class="line">        <span class="keyword">this</span>.instance = instance;</span><br><span class="line">        <span class="keyword">this</span>.loadBalancer = loadBalancer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> URI <span class="title">getURI</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        URI uri = <span class="keyword">this</span>.loadBalancer.reconstructURI(<span class="keyword">this</span>.instance, getRequest().getURI());</span><br><span class="line">        <span class="keyword">return</span> uri;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里再调用前面的 LoadBalancerRequestTransformer , 根据 ServiceInstance 的信息，将请求发送到对应的服务实例上。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.transformers != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (LoadBalancerRequestTransformer transformer : <span class="keyword">this</span>.transformers) &#123;</span><br><span class="line">                    serviceRequest = transformer.transformRequest(serviceRequest,</span><br><span class="line">                            instance);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+<p>到这里，就说明白了 LoadBalancerClient 和 LoadBalancerRequestFactory 在 LoadBalancerInterceptor 下的作用。</p>
+<p>继续看 LoadBalancerInterceptor 的 intercept 方法，也就是实际对请求进行拦截的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ClientHttpResponse <span class="title">intercept</span><span class="params">(<span class="keyword">final</span> HttpRequest request, <span class="keyword">final</span> <span class="keyword">byte</span>[] body,</span></span></span><br><span class="line"><span class="function"><span class="params">            <span class="keyword">final</span> ClientHttpRequestExecution execution)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> URI originalUri = request.getURI();</span><br><span class="line">        String serviceName = originalUri.getHost();</span><br><span class="line">        Assert.state(serviceName != <span class="keyword">null</span>,</span><br><span class="line">                <span class="string">"Request URI does not contain a valid hostname: "</span> + originalUri);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.loadBalancer.execute(serviceName,</span><br><span class="line">                <span class="keyword">this</span>.requestFactory.createRequest(request, body, execution));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后 execute 就用到了 RibbonLoadBalancerClient 下的 execute 方法，具体分析见上文，一直到使用 apply 方法，就调用了 LoadBalancerRequestFactory 的 createRequest 里的方法，这里的具体执行方式，上文也进行过了分析。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> instance -&gt; &#123;</span><br><span class="line">            HttpRequest serviceRequest = <span class="keyword">new</span> ServiceRequestWrapper(request, instance,</span><br><span class="line">                    <span class="keyword">this</span>.loadBalancer);</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.transformers != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (LoadBalancerRequestTransformer transformer : <span class="keyword">this</span>.transformers) &#123;</span><br><span class="line">                    serviceRequest = transformer.transformRequest(serviceRequest,</span><br><span class="line">                            instance);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> execution.execute(serviceRequest, body);</span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/foolish/tags/学习笔记/" rel="tag"># 学习笔记</a>
+          
+            <a href="/foolish/tags/spring/" rel="tag"># spring</a>
+          
+            <a href="/foolish/tags/spring-cloud/" rel="tag"># spring cloud</a>
+          
+            <a href="/foolish/tags/spring-boot/" rel="tag"># spring boot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/foolish/2019/08/30/spring-cloud微服务实战-第三章学习笔记/" rel="next" title="spring-cloud微服务实战-第三章学习笔记">
+                <i class="fa fa-chevron-left"></i> spring-cloud微服务实战-第三章学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">无个性</p>
+              <div class="site-description motion-element" itemprop="description">Just do IT!</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/foolish/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/foolish/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/foolish/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zyp461476492" title="GitHub &rarr; https://github.com/zyp461476492" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RestTemplate-详解"><span class="nav-number">1.</span> <span class="nav-text">RestTemplate 详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码分析"><span class="nav-number">2.</span> <span class="nav-text">源码分析</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">无个性</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/foolish/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/foolish/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/foolish/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/foolish/js/utils.js?v=7.2.0"></script>
+
+  <script src="/foolish/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/foolish/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/foolish/js/scrollspy.js?v=7.2.0"></script>
+<script src="/foolish/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/foolish/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
