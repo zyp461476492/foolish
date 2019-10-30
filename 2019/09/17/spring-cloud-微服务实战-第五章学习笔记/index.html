@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="spring-cloud 学习笔记，第二章，记录学习中觉得重要的知识点，供个人回顾使用。">
+  <meta name="description" content="spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-hystrix 相关内容 ，记录笔记，供个人回顾使用。">
 <meta name="keywords" content="学习笔记,spring,spring cloud,spring boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-cloud微服务实战 第二章学习笔记">
-<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/08/29/spring-cloud微服务实战-第二章学习笔记/index.html">
+<meta property="og:title" content="spring-cloud-微服务实战-第五章学习笔记">
+<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/09/17/spring-cloud-微服务实战-第五章学习笔记/index.html">
 <meta property="og:site_name" content="无个性">
-<meta property="og:description" content="spring-cloud 学习笔记，第二章，记录学习中觉得重要的知识点，供个人回顾使用。">
+<meta property="og:description" content="spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-hystrix 相关内容 ，记录笔记，供个人回顾使用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T06:15:55.307Z">
+<meta property="og:updated_time" content="2019-10-30T02:30:43.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring-cloud微服务实战 第二章学习笔记">
-<meta name="twitter:description" content="spring-cloud 学习笔记，第二章，记录学习中觉得重要的知识点，供个人回顾使用。">
+<meta name="twitter:title" content="spring-cloud-微服务实战-第五章学习笔记">
+<meta name="twitter:description" content="spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-hystrix 相关内容 ，记录笔记，供个人回顾使用。">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/08/29/spring-cloud微服务实战-第二章学习笔记/">
+  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/09/17/spring-cloud-微服务实战-第五章学习笔记/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>spring-cloud微服务实战 第二章学习笔记 | 无个性</title>
+  <title>spring-cloud-微服务实战-第五章学习笔记 | 无个性</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/08/29/spring-cloud微服务实战-第二章学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/09/17/spring-cloud-微服务实战-第五章学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="无个性">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">spring-cloud微服务实战 第二章学习笔记
+          <h1 class="post-title" itemprop="name headline">spring-cloud-微服务实战-第五章学习笔记
 
               
             
@@ -333,13 +333,23 @@
                 
               
 
-              <time title="创建时间：2019-08-29 11:19:34 / 修改时间：14:15:55" itemprop="dateCreated datePublished" datetime="2019-08-29T11:19:34+08:00">2019-08-29</time>
+              <time title="创建时间：2019-09-17 16:41:29" itemprop="dateCreated datePublished" datetime="2019-09-17T16:41:29+08:00">2019-09-17</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-30 10:30:43" itemprop="dateModified" datetime="2019-10-30T10:30:43+08:00">2019-10-30</time>
+              </span>
             
           
 
@@ -379,7 +389,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.7k</span>
+              <span title="本文字数">2.5k</span>
             </span>
           
 
@@ -411,73 +421,65 @@
 
       
         <blockquote>
-<p>spring-cloud 学习笔记，第二章，记录学习中觉得重要的知识点，供个人回顾使用。</p>
+<p>spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-hystrix 相关内容 ，记录笔记，供个人回顾使用。</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="spring-boot-配置文件"><a href="#spring-boot-配置文件" class="headerlink" title="spring-boot 配置文件"></a>spring-boot 配置文件</h2><p>spring-boot 默认配置文件路径为 /src/main/resources/application.properties，目前实际项目中，一般使用 .yaml 格式文件作为配置文件。</p>
-<p>yaml 采用的格式是类似大纲形式的缩减形式。</p>
-<p>spring-boot 可以自定义参数。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">1234</span></span><br><span class="line"></span><br><span class="line"><span class="attr">book:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="number">123</span></span><br></pre></td></tr></table></figure>
-
-<p>上述的配置中，我自定义了 book.name = 123 这个自定义属性，此时，如果是用 IDEA 作为开发工具，会提示 “cannot  resolve configuration property ‘book.name’”。</p>
-<p>遇到这种问题，我们需要通过 <a href="https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/reference/html/configuration-metadata.html#configuration-metadata-annotation-processor" target="_blank" rel="noopener">Annotation Processor</a> 生成我们自己的 Metadata </p>
-<p>首先，添加如下的依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>随后在项目的 /src/main/resources/META-INF/ 目录下，新增 additional-spring-configuration-metadata.json 文件，文件内容如下</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"properties"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"book.name"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"java.lang.String"</span>,</span><br><span class="line">      <span class="attr">"description"</span>: <span class="string">"Description for book.name."</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样，就完成了自定义参数的定义步骤。随后就可以在 java 代码中，通过 @Value 注解和 PalceHolder （格式为 ${…}）或 SpEl 表达式的方式来注入参数。</p>
-<p>在 spring-boot 配置文件中，可以使用 ${random} 来生成一个随机数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestComponent</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;book.name&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h2><p>在使用命令行的方式启动 spring-boot 应用时，连续的两个减号 – 就是对 application.properties 中的属性进行赋值操作。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 通过命令参数对 server.port 进行赋值</span></span><br><span class="line">java -jar xxx.jar --server.port=4567</span><br></pre></td></tr></table></figure>
-
-<h2 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h2><p>实际项目，不通环境，例如生产和测试，对应的配置文件都有所不同。在 spring-boot 中，可以对多环境的配置文件进行配置。<br>多环境配置的文件名要满足 application-{profile}.properties 的格式，其中 {profile} 对应环境标识，例如</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在微服务架构中，我们将系统拆分成了很多个单元，各个单元之间通过服务注册和服务订阅的方式互相依赖，由于都处在不同的进程中，依赖远程调用的方式，很有可能因为网络或者自身服务问题，出现调用故障和延迟，而延迟也会导致调用方的服务积压，最后因为积压从而使自身的服务也瘫痪。</p>
+<p>所以，hystrix起到了一个熔断器的作用，类似于电路中的断路器，当发生故障时，及时切断故障的电路（服务），从而避免整个服务发生瘫痪。</p>
+<p>参考官方给出的 hystrix 工作流程，我们进行逐步分析。</p>
+<h2 id="创建-HystrixCommand-或-HystrixObservableCommand-对象"><a href="#创建-HystrixCommand-或-HystrixObservableCommand-对象" class="headerlink" title="创建 HystrixCommand 或 HystrixObservableCommand 对象"></a>创建 HystrixCommand 或 HystrixObservableCommand 对象</h2><p>构建 HystrixCommand 或 HystrixObservableCommand 对象，用来表示对依赖服务的操作请求。通过命名我们可以看出，它们采用了命令模式来实现对服务调用操作的封装。这两个 command 对象分别针对不同的应用场景。</p>
 <ul>
-<li>application-dev.yaml 开发</li>
-<li>application-test.yaml 测试</li>
-<li>application-prod.yaml 生产</li>
+<li>HystrixCommand 用在依赖服务返回单个操作结果的时候。</li>
+<li>HystrixObservableCommand 用在依赖服务返回多个操作结果的时候。</li>
 </ul>
-<h2 id="spring-boot-加载顺序"><a href="#spring-boot-加载顺序" class="headerlink" title="spring-boot 加载顺序"></a>spring-boot 加载顺序</h2><ol>
-<li>命令行传入参数</li>
-<li>SPRING_APPLICATION_JSON 中的属性。SPRING_APPLICATION_JSON 是 JSON 格式配置在系统环境变量中的内容。</li>
-<li>java:comp/evn 中的 JNDI 属性。</li>
-<li>Java的系统属性，可以通过 System.getProperties() 获取的内容。</li>
-<li>操作系统的环境变量。</li>
-<li>通过 random.* 配置的随机属性。</li>
-<li>位于当前应用 jar 包之外，针对不同 {profile} 环境的配置文件内容，例如 application-{profile}.yaml 配置文件。</li>
-<li>位于当前应用 jar 包之内，针对不同 {profile} 环境的配置文件内容，例如 application-{profile}.yaml 配置文件。</li>
-<li>位于当前应用 jar 包之外的 application.yaml 配置文件。</li>
-<li>位于当前应用 jar 包之内的 application.yaml 配置文件。</li>
-<li>在 @Configuration 注解修改的类中，通过 @PropertySource 注解定义的属性。</li>
-<li>应用默认属性，使用 SpringApplication.setDefaultProperties 定义的内容。</li>
-</ol>
-<p>优先级按照上面的顺序从高到低，数字越小优先级越高。</p>
-<h2 id="spring-boot-starter-actuator-概述"><a href="#spring-boot-starter-actuator-概述" class="headerlink" title="spring-boot-starter-actuator 概述"></a>spring-boot-starter-actuator 概述</h2><p>actuator 按照端点的用途，可以将原生端点分为以下三类</p>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><blockquote>
+<p>命令模式是一种行为型设计模式。在命令模式中，所有的请求都会被包装成为一个对象。</p>
+</blockquote>
+<p>命令模式中，一般有如下几个角色：</p>
 <ul>
-<li>应用配置类：获取应用程序中加载的应用配置，环境变量，自动化配置报告等与 spring boot 应用密切相关的配置类信息。</li>
-<li>度量指标类：获取应用程序运行过程中用于监控的度量指标，比如内存信息，线程池信息，HTTP 请求统计等。</li>
-<li>操作控制类：提供了对应用的关闭等操作类功能。</li>
+<li>command：命令的抽象接口，其中包含 execute 方法。</li>
+<li>concreteCommand：具体的命令实现类。每一个请求，都会映射一个具体的命令实现类。对于每个具体命令实现类，都会实现 execute 方法，同时依赖于 receiver，也就是接受者对象，实际具体的命令实现类是将对应的操作交给接受者对象来实现。</li>
+<li>receiver：请求的接受者，也是请求的最终执行者，被命令实现类所依赖。</li>
+<li>invoker：请求调用者，调用者会调用所有传入命令对象的 execute 方法，从而运行命令，但它不会和最终执行者 receiver 耦合，两者通过命令实现类来关联。</li>
+<li>client：进行接受者和命令对象的创建，并建立两者之间的关系。</li>
 </ul>
-<h3 id="应用配置类"><a href="#应用配置类" class="headerlink" title="应用配置类"></a>应用配置类</h3><ul>
-<li>/autoconfig: 该端点用来获取应用的自动化配置报告。</li>
-<li>/beans: 该端点用来获取应用上下文中创建的所有 Bean。</li>
-<li>/configprops: 该端点用来获取应用配置中属性信息报告。</li>
-<li>/env: 该端点和 /configprops 不同，它用来获取应用所有可用的环境属性报告。</li>
-<li>/mappings: 该端点用来返回所有 Spring MVC 的控制器映射关系报告。</li>
-<li>/info: 该端点用来返回一些应用自定义的信息。</li>
+<p>关键点在于调用者 invoker 和操作者 receiver 通过 command 命令接口实现了解耦。</p>
+<h2 id="2-命令执行"><a href="#2-命令执行" class="headerlink" title="2.命令执行"></a>2.命令执行</h2><p>Hystrix 在执行时会根据创建的 Command 对象以及具体的情况来选择一个执行。其中 HystrixCommand 实现了下面两个执行方式</p>
+<ul>
+<li>execute(): 同步执行，从依赖的服务返回一个单一的结果对象，或者是在发生错误时抛出异常。</li>
+<li>queue()：异步执行，直接返回一个 Future 对象，其中包括了服务执行结束时要返回的单一结果对象。</li>
 </ul>
-<h3 id="度量指标类"><a href="#度量指标类" class="headerlink" title="度量指标类"></a>度量指标类</h3><ul>
-<li>/metrics: 该端点用来返回当前应用的各类重要度量指标，比如内存信息，线程信息，垃圾回收信息等。</li>
-<li>/health: 该端点用来获取应用的各类健康指标信息。</li>
-<li>/dump: 该端点用来暴露程序运行中的线程信息。</li>
-<li>/trace: 该端点用来返回基本的 HTTP 跟踪信息。</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">R value = command.execute();</span><br><span class="line">Future&lt;R&gt; fValue = command.queue();</span><br></pre></td></tr></table></figure>
+
+<p>HystrixObservableCommand 实现了另外两种执行方式。</p>
+<ul>
+<li>observe()：返回 observeable 对象，它代表了操作的多个结果，它是一个 HotObservable 。</li>
+<li>toObservable()：同样会返回一个 Observable 对象，也代表了操作的多个结果，但它是一个 Cold Observable</li>
 </ul>
-<h3 id="操作控制类"><a href="#操作控制类" class="headerlink" title="操作控制类"></a>操作控制类</h3><ul>
-<li>/shutdown: 原生端点中只提供了用来关闭应用的端点。</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Observable&lt;R&gt; ohValue = command.observe();</span><br><span class="line">Observable&lt;R&gt; ocValue = command.toObservable();</span><br></pre></td></tr></table></figure>
+
+<p>Hot Observable 它不论“事件源”是否有订阅者，都会在创建后对事件进行发布，所以对于 Hot Observable 的每一个订阅者，都可能是从 “事件源” 的中途开始的，可能只是看到了整个操作的局部过程。</p>
+<p>Cold Observable 在没有订阅者的时候不会发布事件，而是进行等待。直到有订阅者之后才发布事件。所以对于 Cold Observable 的订阅者，它保证了从一开始看到整个操作的全部过程。</p>
+<h2 id="3-结果是否缓存"><a href="#3-结果是否缓存" class="headerlink" title="3.结果是否缓存"></a>3.结果是否缓存</h2><p>若当前命令的请求缓存功能是被启用的，并且该命令缓存命中，那么缓存的结果会立即以 Observable 对象的形式返回。</p>
+<h2 id="4-断路器是否打开"><a href="#4-断路器是否打开" class="headerlink" title="4.断路器是否打开"></a>4.断路器是否打开</h2><p>在命令结果没有缓存的时候，Hystrix 在执行命令前需要检测断路器是否为打开状态</p>
+<ul>
+<li>如果断路器是打开的，那么 Hystrix 不会执行命令，而是转到 fallback 处理逻辑。</li>
+<li>如果断路器是关闭的，那么 Hystrix 跳到第五步（线程池/请求队列/信号量是否占满），检查是否有可用资源来执行命令。</li>
+</ul>
+<h2 id="5-线程池-请求队列-信号量是否占满"><a href="#5-线程池-请求队列-信号量是否占满" class="headerlink" title="5.线程池/请求队列/信号量是否占满"></a>5.线程池/请求队列/信号量是否占满</h2><p>这一步检查命令相关的线程池/请求队列或信号量是否占满，如果占满，Hystrix 不会执行命令，而是转到 fallback 处理逻辑。</p>
+<p>这里 Hystrix 所判断的线程池并非容器的线程池，而是每个依赖服务专有线程池。</p>
+<h2 id="6-HystrixObservableCommand-construct-或-HystrixCommand-run"><a href="#6-HystrixObservableCommand-construct-或-HystrixCommand-run" class="headerlink" title="6.HystrixObservableCommand.construct 或 HystrixCommand.run"></a>6.HystrixObservableCommand.construct 或 HystrixCommand.run</h2><p>Hystrix 会根据我们编写的方法来决定采取什么样的方式请求依赖服务。</p>
+<ul>
+<li>HystrixCommand.run(): 返回单一的结果，或者抛出异常。</li>
+<li>HystrixObservableCommand.construct 返回一个 Observable 对象来发射多个结果，或通过 onError 发送错误通知。</li>
+</ul>
+<h2 id="7-计算断路器的健康度"><a href="#7-计算断路器的健康度" class="headerlink" title="7.计算断路器的健康度"></a>7.计算断路器的健康度</h2><h2 id="8-fallback-处理"><a href="#8-fallback-处理" class="headerlink" title="8.fallback 处理"></a>8.fallback 处理</h2><p>当命令执行失败时，Hystrix 会进入 fallback 尝试回退处理，通常也叫做 “服务降级”。</p>
+<p>通常引起服务降级的情况有一下几种：</p>
+<ul>
+<li>第四步，当前命令处于 “熔断/断路” ，断路器是打开状态。</li>
+<li>第五步，当前命令的线程池，请求队列，信号量全满。</li>
+<li>第六步，抛出异常时。</li>
 </ul>
 
       
@@ -524,8 +526,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/foolish/2019/07/08/es6-学习笔记/" rel="next" title="es6 学习笔记">
-                <i class="fa fa-chevron-left"></i> es6 学习笔记
+              <a href="/foolish/2019/09/03/spring-cloud-微服务实战-第四章学习笔记/" rel="next" title="spring-cloud-微服务实战-第四章学习笔记">
+                <i class="fa fa-chevron-left"></i> spring-cloud-微服务实战-第四章学习笔记
               </a>
             
           </div>
@@ -533,10 +535,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/foolish/2019/08/30/spring-cloud微服务实战-第三章学习笔记/" rel="prev" title="spring-cloud微服务实战-第三章学习笔记">
-                spring-cloud微服务实战-第三章学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -732,7 +730,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-配置文件"><span class="nav-number">1.</span> <span class="nav-text">spring-boot 配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行参数"><span class="nav-number">2.</span> <span class="nav-text">命令行参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多环境配置"><span class="nav-number">3.</span> <span class="nav-text">多环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-加载顺序"><span class="nav-number">4.</span> <span class="nav-text">spring-boot 加载顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-starter-actuator-概述"><span class="nav-number">5.</span> <span class="nav-text">spring-boot-starter-actuator 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用配置类"><span class="nav-number">5.1.</span> <span class="nav-text">应用配置类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#度量指标类"><span class="nav-number">5.2.</span> <span class="nav-text">度量指标类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作控制类"><span class="nav-number">5.3.</span> <span class="nav-text">操作控制类</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-HystrixCommand-或-HystrixObservableCommand-对象"><span class="nav-number">2.</span> <span class="nav-text">创建 HystrixCommand 或 HystrixObservableCommand 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令模式"><span class="nav-number">2.1.</span> <span class="nav-text">命令模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-命令执行"><span class="nav-number">3.</span> <span class="nav-text">2.命令执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-结果是否缓存"><span class="nav-number">4.</span> <span class="nav-text">3.结果是否缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-断路器是否打开"><span class="nav-number">5.</span> <span class="nav-text">4.断路器是否打开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-线程池-请求队列-信号量是否占满"><span class="nav-number">6.</span> <span class="nav-text">5.线程池/请求队列/信号量是否占满</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-HystrixObservableCommand-construct-或-HystrixCommand-run"><span class="nav-number">7.</span> <span class="nav-text">6.HystrixObservableCommand.construct 或 HystrixCommand.run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-计算断路器的健康度"><span class="nav-number">8.</span> <span class="nav-text">7.计算断路器的健康度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-fallback-处理"><span class="nav-number">9.</span> <span class="nav-text">8.fallback 处理</span></a></li></ol></div>
             
 
           </div>
