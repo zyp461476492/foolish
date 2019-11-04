@@ -81,3 +81,19 @@ eureka:
 ```
 
 通过设置 **eureka.instance.preferIpAddress** 为 **true**，可以让应用在运行时更倾向于使用 ip。
+
+## 保护 Eureka Server
+
+你可以保护你的 Eureka Server 通过添加 **spring-boot-starter-security** 依赖。默认情况下，Spring Security 要求验证 CSRF 对于每个发送的请求。Eureka Clients 没有提供通用处理，所以你需要单独进行设置
+
+```java
+@EnableWebSecurity
+class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().ignoringAntMatchers("/eureka/**");
+        super.configure(http);
+    }
+}
+```
