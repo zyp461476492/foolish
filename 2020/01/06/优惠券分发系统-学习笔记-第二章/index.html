@@ -94,18 +94,20 @@
 
 
 
-  <meta name="description" content="spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-hystrix 相关内容 ，记录笔记，供个人回顾使用。">
-<meta name="keywords" content="学习笔记,spring,spring cloud,spring boot">
+  <meta name="description" content="第二章学习旅程记录">
+<meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-cloud-微服务实战-第五章学习笔记">
-<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/09/17/spring-cloud-微服务实战-第五章学习笔记/index.html">
+<meta property="og:title" content="优惠券分发系统-学习笔记-第二章">
+<meta property="og:url" content="https://zyp461476492.github.io/foolish/2020/01/06/优惠券分发系统-学习笔记-第二章/index.html">
 <meta property="og:site_name" content="无个性">
-<meta property="og:description" content="spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-hystrix 相关内容 ，记录笔记，供个人回顾使用。">
+<meta property="og:description" content="第二章学习旅程记录">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-30T02:30:43.446Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/21177719/71820270-9aafe580-30c9-11ea-9d8f-7df507675d55.png">
+<meta property="og:updated_time" content="2020-01-06T13:18:10.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring-cloud-微服务实战-第五章学习笔记">
-<meta name="twitter:description" content="spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-hystrix 相关内容 ，记录笔记，供个人回顾使用。">
+<meta name="twitter:title" content="优惠券分发系统-学习笔记-第二章">
+<meta name="twitter:description" content="第二章学习旅程记录">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/21177719/71820270-9aafe580-30c9-11ea-9d8f-7df507675d55.png">
 
 
 
@@ -113,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/09/17/spring-cloud-微服务实战-第五章学习笔记/">
+  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2020/01/06/优惠券分发系统-学习笔记-第二章/">
 
 
 
@@ -123,7 +125,7 @@
   };
 </script>
 
-  <title>spring-cloud-微服务实战-第五章学习笔记 | 无个性</title>
+  <title>优惠券分发系统-学习笔记-第二章 | 无个性</title>
   
 
 
@@ -290,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/09/17/spring-cloud-微服务实战-第五章学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2020/01/06/优惠券分发系统-学习笔记-第二章/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="无个性">
@@ -307,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">spring-cloud-微服务实战-第五章学习笔记
+          <h1 class="post-title" itemprop="name headline">优惠券分发系统-学习笔记-第二章
 
               
             
@@ -333,23 +335,13 @@
                 
               
 
-              <time title="创建时间：2019-09-17 16:41:29" itemprop="dateCreated datePublished" datetime="2019-09-17T16:41:29+08:00">2019-09-17</time>
+              <time title="创建时间：2020-01-06 21:17:41 / 修改时间：21:18:10" itemprop="dateCreated datePublished" datetime="2020-01-06T21:17:41+08:00">2020-01-06</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-10-30 10:30:43" itemprop="dateModified" datetime="2019-10-30T10:30:43+08:00">2019-10-30</time>
-              </span>
             
           
 
@@ -389,7 +381,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.5k</span>
+              <span title="本文字数">2.6k</span>
             </span>
           
 
@@ -421,66 +413,148 @@
 
       
         <blockquote>
-<p>spring-cloud 学习笔记，第四章，介绍了 Spring-cloud-hystrix 相关内容 ，记录笔记，供个人回顾使用。</p>
+<p>第二章学习旅程记录</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在微服务架构中，我们将系统拆分成了很多个单元，各个单元之间通过服务注册和服务订阅的方式互相依赖，由于都处在不同的进程中，依赖远程调用的方式，很有可能因为网络或者自身服务问题，出现调用故障和延迟，而延迟也会导致调用方的服务积压，最后因为积压从而使自身的服务也瘫痪。</p>
-<p>所以，hystrix起到了一个熔断器的作用，类似于电路中的断路器，当发生故障时，及时切断故障的电路（服务），从而避免整个服务发生瘫痪。</p>
-<p>参考官方给出的 hystrix 工作流程，我们进行逐步分析。</p>
-<h2 id="创建-HystrixCommand-或-HystrixObservableCommand-对象"><a href="#创建-HystrixCommand-或-HystrixObservableCommand-对象" class="headerlink" title="创建 HystrixCommand 或 HystrixObservableCommand 对象"></a>创建 HystrixCommand 或 HystrixObservableCommand 对象</h2><p>构建 HystrixCommand 或 HystrixObservableCommand 对象，用来表示对依赖服务的操作请求。通过命名我们可以看出，它们采用了命令模式来实现对服务调用操作的封装。这两个 command 对象分别针对不同的应用场景。</p>
-<ul>
-<li>HystrixCommand 用在依赖服务返回单个操作结果的时候。</li>
-<li>HystrixObservableCommand 用在依赖服务返回多个操作结果的时候。</li>
+<h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><h3 id="maven-常用命令"><a href="#maven-常用命令" class="headerlink" title="maven 常用命令"></a>maven 常用命令</h3><ul>
+<li>mvn -v 查看版本</li>
+<li>mvn compile 编译</li>
+<li>mvn test 执行测试用例</li>
+<li>mvn package 打包成 jar 包</li>
+<li>mvn clean 清楚 target 下的内容</li>
+<li>mvn install 当前项目安装到本地</li>
 </ul>
-<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><blockquote>
-<p>命令模式是一种行为型设计模式。在命令模式中，所有的请求都会被包装成为一个对象。</p>
+<p>可以再命令后加入参数 <strong>-Dmaven.test.skip=true -U</strong> 来跳过测试用例的测试。</p>
+<h3 id="maven-常用概念"><a href="#maven-常用概念" class="headerlink" title="maven 常用概念"></a>maven 常用概念</h3><p>传递依赖：直接引入的 jar 包和它依赖的间接引入的 jar 包都会被引入。</p>
+<p>依赖排除：可以再 pom.xml 中通过指明要排除依赖的 jar 包的坐标来排除不需要的依赖。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hbasee<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hbase<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.94.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="maven-冲突解决"><a href="#maven-冲突解决" class="headerlink" title="maven 冲突解决"></a>maven 冲突解决</h3><p>maven 理论上不会发生依赖冲突，因为 maven 具有下列特征</p>
+<ul>
+<li>短路优先</li>
+<li>声明优先</li>
+</ul>
+<p>短路优先即发生依赖冲突时，谁短先引用谁，所以不会存在依赖冲突。</p>
+<p>声明优先即如果发生冲突且长度一致，谁先声明，引用谁。</p>
+<h3 id="maven-多项目-模块聚合知识点"><a href="#maven-多项目-模块聚合知识点" class="headerlink" title="maven 多项目/模块聚合知识点"></a>maven 多项目/模块聚合知识点</h3><ul>
+<li>父模块项目POM的 packing 类型必须是 pom</li>
+<li>聚合子模块使用 modules标签</li>
+<li>使用父模块来统一管理依赖包，使用 dependencyManagement 标签<ul>
+<li>dependencies 标签声明的子模块都会全部继承。</li>
+<li>dependencyManagement 只是在父类进行声明，子模块声明后才进行引入。</li>
+<li>通过 dependencyManagement 声明的，子模块需要显示声明的依赖，才会进行继承。</li>
+<li>子项目如果需要指定版本，显式指定版本号即可。</li>
+</ul>
+</li>
+<li>子模块需要在 POM 中声明父模块，从而进行依赖引用等。</li>
+</ul>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>Redis 是一个基于内存的 key-value 数据库，也可以称作缓存数据库，它不需要提前定义 scheme，所以是非关系型数据库。</p>
+<p>Redis 所有操作都是原子的，是数据库事务的特性，即要不全执行，要不全都不执行。这是数据库理论里面的原子性，即操作不可继续划分，为最小操作。原因是因为 Redis 的IO模型是单线程，单进程，顺序操作。</p>
+<h3 id="常用数据类型"><a href="#常用数据类型" class="headerlink" title="常用数据类型"></a>常用数据类型</h3><ul>
+<li>String<ul>
+<li>最基本的类型，二进制存储，所以可以包含任何数据，单个value的最大可以为1GB</li>
+</ul>
+</li>
+<li>List<ul>
+<li>存储序列集合，有序</li>
+<li>双向列表实现</li>
+<li>可以当做栈和队列</li>
+<li>不要求元素唯一</li>
+</ul>
+</li>
+<li>Hash<ul>
+<li>字典</li>
+<li>存储多个 key-value 数据</li>
+<li>多个 key-value 是一类的</li>
+<li>类似 java hashmap</li>
+</ul>
+</li>
+<li>Set<ul>
+<li>无序的方式存储多个不同的元素。</li>
+<li>相同元素只保存一个</li>
+<li>最大长度为 2的32次方-1</li>
+<li>除了基本操作外，还包含集合的并集，交集，差集等操作</li>
+</ul>
+</li>
+<li>SortedSet<ul>
+<li>与 set 类型类型</li>
+<li>不同的是，每个元素都关联一个浮点数的权重值</li>
+<li>通过权重值来有序的获取集合中的元素</li>
+<li>如果元素权重一致，则按照元素的字节排序来获取</li>
+<li>最常见应用，排行榜</li>
+</ul>
+</li>
+</ul>
+<h3 id="Key-过期策略"><a href="#Key-过期策略" class="headerlink" title="Key 过期策略"></a>Key 过期策略</h3><p>redi可以对 key 设置过期时间，理论上实现方式有三种</p>
+<ol>
+<li>定时删除<ul>
+<li>即创建key时启动一个定时器，到时间进行删除，不浪费内存，但消耗了CPU资源</li>
+</ul>
+</li>
+<li>惰性删除<ul>
+<li>不管key是否过期，但每次获取key时，要进行检查，如果过期，则删除key</li>
+<li>平时不处理，使用时进行检查，过期则删除，未过期则返回该值。</li>
+<li>浪费了内存，但节约了CPU资源</li>
+<li>假如一个key永远不使用，则会一直保存在内存中，浪费内存</li>
+</ul>
+</li>
+<li>定期删除<ul>
+<li>启动一个定时器，按照一定时间标准，对所有过期的key进行删除，耗费了内存，CPU占用优化</li>
+</ul>
+</li>
+</ol>
+<p>redis 的过期策略是使用了 惰性删除和定期删除</p>
+<h3 id="Redis-持久化方式"><a href="#Redis-持久化方式" class="headerlink" title="Redis 持久化方式"></a>Redis 持久化方式</h3><ul>
+<li>RDB （默认方式，快照）<ul>
+<li>定期全量持久化数据到内存</li>
+<li>占用资源多</li>
+<li>定期间隔长，恢复时可能丢失数据</li>
+<li>一般线上环境不采用</li>
+<li>恢复速度快</li>
+</ul>
+</li>
+<li>AOF （APPEND OPERATION FILE）<ul>
+<li>把用户写指令保存在文件中</li>
+<li>占用资源少</li>
+<li>恢复慢</li>
+<li>正式环境一般采用该方式</li>
+</ul>
+</li>
+</ul>
+<h3 id="Redis-速度快的原因"><a href="#Redis-速度快的原因" class="headerlink" title="Redis 速度快的原因"></a>Redis 速度快的原因</h3><ul>
+<li>完全基于内存</li>
+<li>数据结构简单，避免了一些复杂操作</li>
+<li>单线程，没有线程切换和竞争带来的性能影响</li>
+<li>多路IO复用模型</li>
+</ul>
+<h3 id="Redis-常见问题"><a href="#Redis-常见问题" class="headerlink" title="Redis 常见问题"></a>Redis 常见问题</h3><ul>
+<li>缓存穿透<ul>
+<li>cache 不命中，数据库中又没有，查询了两次，性能低下。</li>
+<li>解决办法：给没有命中的key设定没有意义的空值</li>
+</ul>
+</li>
+<li>缓存雪崩<ul>
+<li>同一批cache设置了相同的过期时间，同一时间失效，请求全部转发的DB，操作DB压力过大</li>
+<li>解决办法：给key设定不同的（随机的）过期时间</li>
+</ul>
+</li>
+</ul>
+<h3 id="Redis-IO-模型"><a href="#Redis-IO-模型" class="headerlink" title="Redis IO 模型"></a>Redis IO 模型</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><blockquote>
+<p>文件描述符：内核（kernel）利用文件描述符（file descriptor）来访问文件。文件描述符是非负整数。打开现存文件或新建文件时，内核会返回一个文件描述符。读写文件也需要使用文件描述符来指定待读写的文件。简称 FD</p>
 </blockquote>
-<p>命令模式中，一般有如下几个角色：</p>
-<ul>
-<li>command：命令的抽象接口，其中包含 execute 方法。</li>
-<li>concreteCommand：具体的命令实现类。每一个请求，都会映射一个具体的命令实现类。对于每个具体命令实现类，都会实现 execute 方法，同时依赖于 receiver，也就是接受者对象，实际具体的命令实现类是将对应的操作交给接受者对象来实现。</li>
-<li>receiver：请求的接受者，也是请求的最终执行者，被命令实现类所依赖。</li>
-<li>invoker：请求调用者，调用者会调用所有传入命令对象的 execute 方法，从而运行命令，但它不会和最终执行者 receiver 耦合，两者通过命令实现类来关联。</li>
-<li>client：进行接受者和命令对象的创建，并建立两者之间的关系。</li>
+<h4 id="常见-IO-模型"><a href="#常见-IO-模型" class="headerlink" title="常见 IO 模型"></a>常见 IO 模型</h4><ol>
+<li>Blocking IO 阻塞型<ul>
+<li>当 read/write 对某一个文件描述符（FD）进行读写时，如果当前FD不可读或不可写，则服务阻塞</li>
 </ul>
-<p>关键点在于调用者 invoker 和操作者 receiver 通过 command 命令接口实现了解耦。</p>
-<h2 id="2-命令执行"><a href="#2-命令执行" class="headerlink" title="2.命令执行"></a>2.命令执行</h2><p>Hystrix 在执行时会根据创建的 Command 对象以及具体的情况来选择一个执行。其中 HystrixCommand 实现了下面两个执行方式</p>
-<ul>
-<li>execute(): 同步执行，从依赖的服务返回一个单一的结果对象，或者是在发生错误时抛出异常。</li>
-<li>queue()：异步执行，直接返回一个 Future 对象，其中包括了服务执行结束时要返回的单一结果对象。</li>
+</li>
+<li>IO 多路复用模型<ul>
+<li>同时监控（select/epoll 根据操作系统不同和性能不能进行选择，优先选择性能高的函数）多个FD的可读可写状态，当其中的某些FD可读或可写时，就返回可读以及可写的文件描述符（个数）</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">R value = command.execute();</span><br><span class="line">Future&lt;R&gt; fValue = command.queue();</span><br></pre></td></tr></table></figure>
-
-<p>HystrixObservableCommand 实现了另外两种执行方式。</p>
-<ul>
-<li>observe()：返回 observeable 对象，它代表了操作的多个结果，它是一个 HotObservable 。</li>
-<li>toObservable()：同样会返回一个 Observable 对象，也代表了操作的多个结果，但它是一个 Cold Observable</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Observable&lt;R&gt; ohValue = command.observe();</span><br><span class="line">Observable&lt;R&gt; ocValue = command.toObservable();</span><br></pre></td></tr></table></figure>
-
-<p>Hot Observable 它不论“事件源”是否有订阅者，都会在创建后对事件进行发布，所以对于 Hot Observable 的每一个订阅者，都可能是从 “事件源” 的中途开始的，可能只是看到了整个操作的局部过程。</p>
-<p>Cold Observable 在没有订阅者的时候不会发布事件，而是进行等待。直到有订阅者之后才发布事件。所以对于 Cold Observable 的订阅者，它保证了从一开始看到整个操作的全部过程。</p>
-<h2 id="3-结果是否缓存"><a href="#3-结果是否缓存" class="headerlink" title="3.结果是否缓存"></a>3.结果是否缓存</h2><p>若当前命令的请求缓存功能是被启用的，并且该命令缓存命中，那么缓存的结果会立即以 Observable 对象的形式返回。</p>
-<h2 id="4-断路器是否打开"><a href="#4-断路器是否打开" class="headerlink" title="4.断路器是否打开"></a>4.断路器是否打开</h2><p>在命令结果没有缓存的时候，Hystrix 在执行命令前需要检测断路器是否为打开状态</p>
-<ul>
-<li>如果断路器是打开的，那么 Hystrix 不会执行命令，而是转到 fallback 处理逻辑。</li>
-<li>如果断路器是关闭的，那么 Hystrix 跳到第五步（线程池/请求队列/信号量是否占满），检查是否有可用资源来执行命令。</li>
-</ul>
-<h2 id="5-线程池-请求队列-信号量是否占满"><a href="#5-线程池-请求队列-信号量是否占满" class="headerlink" title="5.线程池/请求队列/信号量是否占满"></a>5.线程池/请求队列/信号量是否占满</h2><p>这一步检查命令相关的线程池/请求队列或信号量是否占满，如果占满，Hystrix 不会执行命令，而是转到 fallback 处理逻辑。</p>
-<p>这里 Hystrix 所判断的线程池并非容器的线程池，而是每个依赖服务专有线程池。</p>
-<h2 id="6-HystrixObservableCommand-construct-或-HystrixCommand-run"><a href="#6-HystrixObservableCommand-construct-或-HystrixCommand-run" class="headerlink" title="6.HystrixObservableCommand.construct 或 HystrixCommand.run"></a>6.HystrixObservableCommand.construct 或 HystrixCommand.run</h2><p>Hystrix 会根据我们编写的方法来决定采取什么样的方式请求依赖服务。</p>
-<ul>
-<li>HystrixCommand.run(): 返回单一的结果，或者抛出异常。</li>
-<li>HystrixObservableCommand.construct 返回一个 Observable 对象来发射多个结果，或通过 onError 发送错误通知。</li>
-</ul>
-<h2 id="7-计算断路器的健康度"><a href="#7-计算断路器的健康度" class="headerlink" title="7.计算断路器的健康度"></a>7.计算断路器的健康度</h2><h2 id="8-fallback-处理"><a href="#8-fallback-处理" class="headerlink" title="8.fallback 处理"></a>8.fallback 处理</h2><p>当命令执行失败时，Hystrix 会进入 fallback 尝试回退处理，通常也叫做 “服务降级”。</p>
-<p>通常引起服务降级的情况有一下几种：</p>
-<ul>
-<li>第四步，当前命令处于 “熔断/断路” ，断路器是打开状态。</li>
-<li>第五步，当前命令的线程池，请求队列，信号量全满。</li>
-<li>第六步，抛出异常时。</li>
-</ul>
+</li>
+</ol>
+<h4 id="Redis-IO-模型-1"><a href="#Redis-IO-模型-1" class="headerlink" title="Redis IO 模型"></a>Redis IO 模型</h4><p><img src="https://user-images.githubusercontent.com/21177719/71820270-9aafe580-30c9-11ea-9d8f-7df507675d55.png" alt="Redis IO 模型"></p>
+<p>每一个网络连接（访问redis的请求）对应的是一个文件描述符，即FD<br>通过 redis IO 多路复用模块，去找到一个可操作的FD，然后交给 redis 事件分发器（单线程），去交给 redis 事件处理器来执行操作，从而达到了单线程，但是能处理多个任务。</p>
 
       
     </div>
@@ -509,12 +583,6 @@
           
             <a href="/foolish/tags/学习笔记/" rel="tag"># 学习笔记</a>
           
-            <a href="/foolish/tags/spring/" rel="tag"># spring</a>
-          
-            <a href="/foolish/tags/spring-cloud/" rel="tag"># spring cloud</a>
-          
-            <a href="/foolish/tags/spring-boot/" rel="tag"># spring boot</a>
-          
         </div>
       
 
@@ -526,8 +594,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/foolish/2019/09/03/spring-cloud-微服务实战-第四章学习笔记/" rel="next" title="spring-cloud-微服务实战-第四章学习笔记">
-                <i class="fa fa-chevron-left"></i> spring-cloud-微服务实战-第四章学习笔记
+              <a href="/foolish/2019/11/12/spring-cloud-netflix-文档阅读笔记/" rel="next" title="spring-cloud-netflix-文档阅读笔记">
+                <i class="fa fa-chevron-left"></i> spring-cloud-netflix-文档阅读笔记
               </a>
             
           </div>
@@ -535,10 +603,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/foolish/2019/10/30/分布式文件系统-eureka-server-搭建笔记/" rel="prev" title="分布式文件系统-eureka-server 搭建笔记">
-                分布式文件系统-eureka-server 搭建笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -742,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-HystrixCommand-或-HystrixObservableCommand-对象"><span class="nav-number">2.</span> <span class="nav-text">创建 HystrixCommand 或 HystrixObservableCommand 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令模式"><span class="nav-number">2.1.</span> <span class="nav-text">命令模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-命令执行"><span class="nav-number">3.</span> <span class="nav-text">2.命令执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-结果是否缓存"><span class="nav-number">4.</span> <span class="nav-text">3.结果是否缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-断路器是否打开"><span class="nav-number">5.</span> <span class="nav-text">4.断路器是否打开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-线程池-请求队列-信号量是否占满"><span class="nav-number">6.</span> <span class="nav-text">5.线程池/请求队列/信号量是否占满</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-HystrixObservableCommand-construct-或-HystrixCommand-run"><span class="nav-number">7.</span> <span class="nav-text">6.HystrixObservableCommand.construct 或 HystrixCommand.run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-计算断路器的健康度"><span class="nav-number">8.</span> <span class="nav-text">7.计算断路器的健康度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-fallback-处理"><span class="nav-number">9.</span> <span class="nav-text">8.fallback 处理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-number">1.</span> <span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-常用命令"><span class="nav-number">1.1.</span> <span class="nav-text">maven 常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-常用概念"><span class="nav-number">1.2.</span> <span class="nav-text">maven 常用概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-冲突解决"><span class="nav-number">1.3.</span> <span class="nav-text">maven 冲突解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-多项目-模块聚合知识点"><span class="nav-number">1.4.</span> <span class="nav-text">maven 多项目/模块聚合知识点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-number">2.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用数据类型"><span class="nav-number">2.1.</span> <span class="nav-text">常用数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-过期策略"><span class="nav-number">2.2.</span> <span class="nav-text">Key 过期策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-持久化方式"><span class="nav-number">2.3.</span> <span class="nav-text">Redis 持久化方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-速度快的原因"><span class="nav-number">2.4.</span> <span class="nav-text">Redis 速度快的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-常见问题"><span class="nav-number">2.5.</span> <span class="nav-text">Redis 常见问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-IO-模型"><span class="nav-number">2.6.</span> <span class="nav-text">Redis IO 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">2.6.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见-IO-模型"><span class="nav-number">2.6.2.</span> <span class="nav-text">常见 IO 模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-IO-模型-1"><span class="nav-number">2.6.3.</span> <span class="nav-text">Redis IO 模型</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
