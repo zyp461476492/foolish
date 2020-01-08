@@ -105,7 +105,9 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/21177719/71820270-9aafe580-30c9-11ea-9d8f-7df507675d55.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/21177719/71888617-80cedb00-317b-11ea-8efb-22b50f0db41b.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/21177719/71888810-d99e7380-317b-11ea-87fa-f720b2271c1d.png">
-<meta property="og:updated_time" content="2020-01-07T10:41:23.700Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/21177719/71966180-15007700-323c-11ea-8650-30528287bf3b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/21177719/71966990-87258b80-323d-11ea-882f-03dfb0be7cc1.png">
+<meta property="og:updated_time" content="2020-01-08T09:38:50.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="优惠券分发系统-学习笔记-第二章">
 <meta name="twitter:description" content="第二章学习旅程记录">
@@ -352,7 +354,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-01-07 18:41:23" itemprop="dateModified" datetime="2020-01-07T18:41:23+08:00">2020-01-07</time>
+                <time title="修改时间：2020-01-08 17:38:50" itemprop="dateModified" datetime="2020-01-08T17:38:50+08:00">2020-01-08</time>
               </span>
             
           
@@ -393,7 +395,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">5k</span>
+              <span title="本文字数">6.9k</span>
             </span>
           
 
@@ -405,7 +407,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">5 分钟</span>
+              <span title="阅读时长">6 分钟</span>
             </span>
           
 
@@ -440,7 +442,7 @@
 <p>可以再命令后加入参数 <strong>-Dmaven.test.skip=true -U</strong> 来跳过测试用例的测试。</p>
 <h3 id="maven-常用概念"><a href="#maven-常用概念" class="headerlink" title="maven 常用概念"></a>maven 常用概念</h3><p>传递依赖：直接引入的 jar 包和它依赖的间接引入的 jar 包都会被引入。</p>
 <p>依赖排除：可以再 pom.xml 中通过指明要排除依赖的 jar 包的坐标来排除不需要的依赖。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hbasee<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hbase<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.94.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hbasee<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hbase<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.94.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="maven-冲突解决"><a href="#maven-冲突解决" class="headerlink" title="maven 冲突解决"></a>maven 冲突解决</h3><p>maven 理论上不会发生依赖冲突，因为 maven 具有下列特征</p>
 <ul>
@@ -677,6 +679,103 @@
 <td>从池返回的连接的默认自动提交行为（默认为 true）。在InnoDb表中，所有的语句都是需要commit后，才会在真实数据库中生效</td>
 </tr>
 </tbody></table>
+<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h2><p>kafka 是一个分布式发布订阅消息系统，可划分，冗余备份，缓存日志服务 ，可以用作活跃数据和离线系统之间的缓存。</p>
+<p>kafka 将消息持久化到硬盘里。对消息创建备份，保证数据安全（单机 kafka 不能备份，备份需要分布式环境）</p>
+<p>kafka 的优势</p>
+<ul>
+<li>可靠性<ul>
+<li>kafka 具有分区机制，副本机制，容错机制的消息系统</li>
+</ul>
+</li>
+<li>可拓展性<ul>
+<li>支持集群规模的拓展</li>
+</ul>
+</li>
+<li>高性能</li>
+</ul>
+<h3 id="消息系统"><a href="#消息系统" class="headerlink" title="消息系统"></a>消息系统</h3><p>一般来说，消息系统的功能是基于可靠的消息队列，在生产者和消费者之间异步的传递消息。</p>
+<p>常见的消息系统类型有下列两种：</p>
+<ul>
+<li>点对点消息系统<ul>
+<li>消息持久化到队列中</li>
+<li>会有一个或多个消费者消费消息</li>
+<li>一条消息只能被消费一次</li>
+<li>消息被消费后，会从队列中移除</li>
+<li>能保证数据的顺序性</li>
+</ul>
+</li>
+<li>发布订阅消息系统<ul>
+<li>消息被持久化到一个topic中</li>
+<li>msg 不仅有消息队列，还有不同的 topic 来标识属于那一个topic</li>
+<li>与点对点不同，消费者可以订阅一个或多个 topic ，一个消息可以被多个消费者消费。</li>
+<li>数据被消费后，不会被立即删除。</li>
+<li>消息被划分到 topic 中</li>
+</ul>
+</li>
+</ul>
+<h3 id="kafka-术语"><a href="#kafka-术语" class="headerlink" title="kafka 术语"></a>kafka 术语</h3><p><img src="https://user-images.githubusercontent.com/21177719/71966180-15007700-323c-11ea-8650-30528287bf3b.png" alt="kafka 术语"></p>
+<h4 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h4><p>kafka 中使用类别属性来划分消息所属的类，就称作 topic。</p>
+<p>topic 中的数据被分割为一个或多个 partition （默认一个，至少有一个，可以通过参数进行配置）。</p>
+<p>每个 partition 的数据是有序的，但 partition 间的数据是无序的。</p>
+<p>每一个 partition 都有一个偏移量 offset 。每一个消息都会根据当前所处的 partition 有一个 64 字节的标识来唯一标识文件的起始位置。</p>
+<p>partition还有副本的概念，副本不会被消费者消费，是为了防止丢失。<br>单机版不能设置副本，分布式架构下才能保存副本。</p>
+<h4 id="Broker"><a href="#Broker" class="headerlink" title="Broker"></a>Broker</h4><p>kafka 集群包含多个服务器，每台服务器我们称作 broker，broker 中存储 topic 中的数据（partition）。</p>
+<p>broker接受到生产者发布的消息后，将消息追加的当前用于追加数据的 partition 文件中。 </p>
+<h4 id="Producer"><a href="#Producer" class="headerlink" title="Producer"></a>Producer</h4><p>producer 是数据的发布者，该角色将消息发布到 kafka 的 topic 中。</p>
+<p>生产者可以指定将数据存储到那个 partition 中，但通常不这么做，一般交给 kafka 自己处理。</p>
+<h4 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h4><p>consumer 消息的消费者，也称作订阅者，消费者从 broker 中读取数据，且可以消费多个 topic 中的数据。<br>多个 consumer 构成一个 消费者组。</p>
+<h3 id="kafka-安装配置"><a href="#kafka-安装配置" class="headerlink" title="kafka 安装配置"></a>kafka 安装配置</h3><p>常用配置</p>
+<ul>
+<li>broker.id kafka 集群标识</li>
+<li>log.dirs kafka kafka 日志目录位置</li>
+</ul>
+<h3 id="kafka-常用命令"><a href="#kafka-常用命令" class="headerlink" title="kafka 常用命令"></a>kafka 常用命令</h3><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>启动命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zookeeper</td>
+<td>bin/zookeeper-server-start.sh -daemon config/zookeeper.properties</td>
+<td>Kafka 依赖于 ZK，先启动 ZK</td>
+</tr>
+<tr>
+<td>kafka-server</td>
+<td>bin/kafka-server-start.sh config/server.properties</td>
+<td>启动 Kafka 服务器</td>
+</tr>
+<tr>
+<td>create topic</td>
+<td>bin/kafka-topics.sh –create –zookeeper localhost:2181 –replication-factor 1 –partitions 1 –topic test</td>
+<td>创建 Topic</td>
+</tr>
+<tr>
+<td>topic list</td>
+<td>bin/kafka-topics.sh –list –zookeeper localhost:2181</td>
+<td>查看 Topic 列表</td>
+</tr>
+<tr>
+<td>producer</td>
+<td>bin/kafka-console-producer.sh –broker-list localhost:9092 –topic test</td>
+<td>启动 Producer</td>
+</tr>
+<tr>
+<td>consumer</td>
+<td>bin/kafka-console-consumer.sh –bootstrap-server localhost:9092 –topic test –from-beginning</td>
+<td>启动 Consumer</td>
+</tr>
+<tr>
+<td>topic info</td>
+<td>bin/kafka-topics.sh –describe –zookeeper localhost:2181 –topic test</td>
+<td>查看单个 Topic 信息</td>
+</tr>
+</tbody></table>
+<h3 id="kafka-重要特性"><a href="#kafka-重要特性" class="headerlink" title="kafka 重要特性"></a>kafka 重要特性</h3><p><img src="https://user-images.githubusercontent.com/21177719/71966990-87258b80-323d-11ea-882f-03dfb0be7cc1.png" alt="kafka-core"></p>
+<p>消费者组中的消费者数量应该小于等于 parition 的数量。</p>
+<p>kafka 保证 topic 中的每一个 partition 只被消费者组内的一个 consumer 消费。</p>
 
       
     </div>
@@ -928,7 +1027,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-number">1.</span> <span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-常用命令"><span class="nav-number">1.1.</span> <span class="nav-text">maven 常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-常用概念"><span class="nav-number">1.2.</span> <span class="nav-text">maven 常用概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-冲突解决"><span class="nav-number">1.3.</span> <span class="nav-text">maven 冲突解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-多项目-模块聚合知识点"><span class="nav-number">1.4.</span> <span class="nav-text">maven 多项目/模块聚合知识点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-number">2.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用数据类型"><span class="nav-number">2.1.</span> <span class="nav-text">常用数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-过期策略"><span class="nav-number">2.2.</span> <span class="nav-text">Key 过期策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-持久化方式"><span class="nav-number">2.3.</span> <span class="nav-text">Redis 持久化方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-速度快的原因"><span class="nav-number">2.4.</span> <span class="nav-text">Redis 速度快的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-常见问题"><span class="nav-number">2.5.</span> <span class="nav-text">Redis 常见问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-IO-模型"><span class="nav-number">2.6.</span> <span class="nav-text">Redis IO 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">2.6.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见-IO-模型"><span class="nav-number">2.6.2.</span> <span class="nav-text">常见 IO 模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-IO-模型-1"><span class="nav-number">2.6.3.</span> <span class="nav-text">Redis IO 模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">3.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-索引"><span class="nav-number">3.1.</span> <span class="nav-text">MySQL 索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#B树和B-树"><span class="nav-number">3.1.1.</span> <span class="nav-text">B树和B+树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-聚簇索引"><span class="nav-number">3.2.</span> <span class="nav-text">MySQL 聚簇索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Data-JPA"><span class="nav-number">4.</span> <span class="nav-text">Spring Data JPA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库连接池"><span class="nav-number">5.</span> <span class="nav-text">数据库连接池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库连接池的优势"><span class="nav-number">5.1.</span> <span class="nav-text">数据库连接池的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hikariCP-常用配置"><span class="nav-number">5.2.</span> <span class="nav-text">hikariCP 常用配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-number">1.</span> <span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-常用命令"><span class="nav-number">1.1.</span> <span class="nav-text">maven 常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-常用概念"><span class="nav-number">1.2.</span> <span class="nav-text">maven 常用概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-冲突解决"><span class="nav-number">1.3.</span> <span class="nav-text">maven 冲突解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven-多项目-模块聚合知识点"><span class="nav-number">1.4.</span> <span class="nav-text">maven 多项目/模块聚合知识点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-number">2.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用数据类型"><span class="nav-number">2.1.</span> <span class="nav-text">常用数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-过期策略"><span class="nav-number">2.2.</span> <span class="nav-text">Key 过期策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-持久化方式"><span class="nav-number">2.3.</span> <span class="nav-text">Redis 持久化方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-速度快的原因"><span class="nav-number">2.4.</span> <span class="nav-text">Redis 速度快的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-常见问题"><span class="nav-number">2.5.</span> <span class="nav-text">Redis 常见问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-IO-模型"><span class="nav-number">2.6.</span> <span class="nav-text">Redis IO 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">2.6.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见-IO-模型"><span class="nav-number">2.6.2.</span> <span class="nav-text">常见 IO 模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-IO-模型-1"><span class="nav-number">2.6.3.</span> <span class="nav-text">Redis IO 模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">3.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-索引"><span class="nav-number">3.1.</span> <span class="nav-text">MySQL 索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#B树和B-树"><span class="nav-number">3.1.1.</span> <span class="nav-text">B树和B+树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-聚簇索引"><span class="nav-number">3.2.</span> <span class="nav-text">MySQL 聚簇索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Data-JPA"><span class="nav-number">4.</span> <span class="nav-text">Spring Data JPA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库连接池"><span class="nav-number">5.</span> <span class="nav-text">数据库连接池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库连接池的优势"><span class="nav-number">5.1.</span> <span class="nav-text">数据库连接池的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hikariCP-常用配置"><span class="nav-number">5.2.</span> <span class="nav-text">hikariCP 常用配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka"><span class="nav-number">6.</span> <span class="nav-text">Kafka</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#消息系统"><span class="nav-number">6.1.</span> <span class="nav-text">消息系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kafka-术语"><span class="nav-number">6.2.</span> <span class="nav-text">kafka 术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Topic"><span class="nav-number">6.2.1.</span> <span class="nav-text">Topic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Broker"><span class="nav-number">6.2.2.</span> <span class="nav-text">Broker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Producer"><span class="nav-number">6.2.3.</span> <span class="nav-text">Producer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consumer"><span class="nav-number">6.2.4.</span> <span class="nav-text">Consumer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kafka-安装配置"><span class="nav-number">6.3.</span> <span class="nav-text">kafka 安装配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kafka-常用命令"><span class="nav-number">6.4.</span> <span class="nav-text">kafka 常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kafka-重要特性"><span class="nav-number">6.5.</span> <span class="nav-text">kafka 重要特性</span></a></li></ol></li></ol></div>
             
 
           </div>
