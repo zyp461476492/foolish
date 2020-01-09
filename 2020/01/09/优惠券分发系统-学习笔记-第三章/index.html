@@ -94,20 +94,20 @@
 
 
 
-  <meta name="description" content="官方文档阅读笔记，记录一些理解，和蹩脚翻译">
-<meta name="keywords" content="学习笔记,spring,spring cloud,netflix">
+  <meta name="description" content="第三章学习旅程记录-springboot 相关内容">
+<meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-cloud-netflix-文档阅读笔记">
-<meta property="og:url" content="https://zyp461476492.github.io/foolish/2019/11/12/spring-cloud-netflix-文档阅读笔记/index.html">
+<meta property="og:title" content="优惠券分发系统-学习笔记-第三章">
+<meta property="og:url" content="https://zyp461476492.github.io/foolish/2020/01/09/优惠券分发系统-学习笔记-第三章/index.html">
 <meta property="og:site_name" content="无个性">
-<meta property="og:description" content="官方文档阅读笔记，记录一些理解，和蹩脚翻译">
+<meta property="og:description" content="第三章学习旅程记录-springboot 相关内容">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://martinfowler.com/bliki/images/circuitBreaker/sketch.png">
-<meta property="og:updated_time" content="2019-11-12T09:12:05.438Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/21177719/72037669-f81a8100-32d9-11ea-9e4d-53ccc98310c8.png">
+<meta property="og:updated_time" content="2020-01-09T04:27:24.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring-cloud-netflix-文档阅读笔记">
-<meta name="twitter:description" content="官方文档阅读笔记，记录一些理解，和蹩脚翻译">
-<meta name="twitter:image" content="https://martinfowler.com/bliki/images/circuitBreaker/sketch.png">
+<meta name="twitter:title" content="优惠券分发系统-学习笔记-第三章">
+<meta name="twitter:description" content="第三章学习旅程记录-springboot 相关内容">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/21177719/72037669-f81a8100-32d9-11ea-9e4d-53ccc98310c8.png">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2019/11/12/spring-cloud-netflix-文档阅读笔记/">
+  <link rel="canonical" href="https://zyp461476492.github.io/foolish/2020/01/09/优惠券分发系统-学习笔记-第三章/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>spring-cloud-netflix-文档阅读笔记 | 无个性</title>
+  <title>优惠券分发系统-学习笔记-第三章 | 无个性</title>
   
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2019/11/12/spring-cloud-netflix-文档阅读笔记/">
+    <link itemprop="mainEntityOfPage" href="https://zyp461476492.github.io/foolish/foolish/2020/01/09/优惠券分发系统-学习笔记-第三章/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="无个性">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">spring-cloud-netflix-文档阅读笔记
+          <h1 class="post-title" itemprop="name headline">优惠券分发系统-学习笔记-第三章
 
               
             
@@ -335,7 +335,7 @@
                 
               
 
-              <time title="创建时间：2019-11-12 15:24:34 / 修改时间：17:12:05" itemprop="dateCreated datePublished" datetime="2019-11-12T15:24:34+08:00">2019-11-12</time>
+              <time title="创建时间：2020-01-09 12:26:56 / 修改时间：12:27:24" itemprop="dateCreated datePublished" datetime="2020-01-09T12:26:56+08:00">2020-01-09</time>
             </span>
           
 
@@ -354,7 +354,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/foolish/categories/spring-cloud-netflix/" itemprop="url" rel="index"><span itemprop="name">spring-cloud, netflix</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/foolish/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
 
                 
                 
@@ -381,7 +381,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.4k</span>
+              <span title="本文字数">3.6k</span>
             </span>
           
 
@@ -393,7 +393,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -413,23 +413,62 @@
 
       
         <blockquote>
-<p>官方文档阅读笔记，记录一些理解，和蹩脚翻译</p>
+<p>第三章学习旅程记录-springboot 相关内容</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="Circuit-Breaker-Hystrix-Clients-（循环断路器）"><a href="#Circuit-Breaker-Hystrix-Clients-（循环断路器）" class="headerlink" title="Circuit Breaker: Hystrix Clients （循环断路器）"></a>Circuit Breaker: Hystrix Clients （循环断路器）</h2><h3 id="Circuit-Breaker-pattern"><a href="#Circuit-Breaker-pattern" class="headerlink" title="Circuit Breaker pattern"></a>Circuit Breaker pattern</h3><p>在软件系统中，不同进程间发起远程调用，或者通过不同机器发起调用是一件常见的事。和在内存之间互相调用最大的不同的是，远程调用可能会失败，或长时间无响应直到达到了设置的超时限制。如果你有很多请求是对一个无法响应的服务提供者，那么你可能会用尽你所有的重要资源，从而在多个系统之间引发灾难性的错误，这是多么的糟糕。</p>
-<p><a href="circuit-breaker-pattern">Circuit Breaker pattern</a> 就是一种阻止上述灾难性错误的设计模式。</p>
-<p>circuit breaker 的基本原理非常简单。你把要保护的方法或请求包含在一个可以监控调用失败的 circuit breaker 对象中。一旦故障到达了设置的临界值，circuit breaker 就会被触发（跳闸），所有的失败请求都会通过 circuit breaker 来返回一个所以，而不去对保护的对象进行请求。</p>
-<p>通常，你也需要一些对 circuit breaker 跳闸的监控信息。</p>
-<p><img src="https://martinfowler.com/bliki/images/circuitBreaker/sketch.png" alt="circuit breaker"></p>
-<h2 id="Hystrix-Clients"><a href="#Hystrix-Clients" class="headerlink" title="Hystrix Clients"></a>Hystrix Clients</h2><p>Netflix 创建了一个叫做 Hystrix 的库，它实现了 circuit breaker pattern。在微服务架构中，有多层的服务调用是一个很普遍的现象。</p>
-<p>一个无法提供服务的底层服务可以引发级联的错误，从而导致上层的使用者无法正常使用。当我们请求一个服务时，在一个 <strong>metrics.rollingStats.timeInMilliseconds</strong> (默认为10s) 定义的滑动窗口内如果连续失败超过了 <strong>circuitBreaker.requestVolumeThreshold</strong> （默认为 20 次请求）并且失败率超过了 <strong>circuitBreaker.errorThresholdPercentage</strong> （默认 &gt; 50%），circuit 断路将会被启动，不会继续进行请求。在这种错误和断路打开的情况下，一个 fallback 会被提供给开发者。</p>
-<p>通过断路来阻止级联错误，并给了错误的服务时间来进行恢复。Fallback 可以是另外一个在 hystrix 保护下的请求，静态数据或合法的空值。回退可以是链式的，因此第一个回退会进行一些其他的业务调用，而这些调用又会回退到静态数据。</p>
-<h2 id="如何在项目中导入-Hystrix"><a href="#如何在项目中导入-Hystrix" class="headerlink" title="如何在项目中导入 Hystrix"></a>如何在项目中导入 Hystrix</h2><p>首先，加入 hystrix 的依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-hystrix<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="SpringBoot-应用入口"><a href="#SpringBoot-应用入口" class="headerlink" title="SpringBoot 应用入口"></a>SpringBoot 应用入口</h2><h3 id="Springboot-的三种启动方式"><a href="#Springboot-的三种启动方式" class="headerlink" title="Springboot 的三种启动方式"></a>Springboot 的三种启动方式</h3><ul>
+<li>SpringApplication 静态方法 run</li>
+<li>通过 api 调整应用行为，并启动</li>
+<li>SprinigApplicationBuilder 的 fluent api 实现链式调用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 1. 通过静态 run 方法</span></span><br><span class="line">        SpringApplication.run(SpringBootStudyApplication.class, args);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 通过 api 调整应用行为</span></span><br><span class="line">        SpringApplication application =</span><br><span class="line">                <span class="keyword">new</span> SpringApplication(SpringBootStudyApplication.class);</span><br><span class="line">        application.setBannerMode(Banner.Mode.OFF);</span><br><span class="line">        application.setWebApplicationType(WebApplicationType.NONE);</span><br><span class="line">        application.run(args);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. SpringApplicationBuilder Fluent Api, 链式调用</span></span><br><span class="line">        <span class="keyword">new</span> SpringApplicationBuilder(SpringBootStudyApplication.class)</span><br><span class="line">                .bannerMode(Banner.Mode.OFF)</span><br><span class="line">                .web(WebApplicationType.NONE)</span><br><span class="line">                .run(args);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>通过 @EnableCircuitBreaker 注解来启动一个最小配置的 Hystrix Circuit breaker。通过 @HystrixCommand 和继承 HystrixCommand 等来实现 fallback 等内容。</p>
-<h2 id="客户端侧的负载均衡器-Ribbon"><a href="#客户端侧的负载均衡器-Ribbon" class="headerlink" title="客户端侧的负载均衡器-Ribbon"></a>客户端侧的负载均衡器-Ribbon</h2>
+<h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h3><p><img src="https://user-images.githubusercontent.com/21177719/72037669-f81a8100-32d9-11ea-9e4d-53ccc98310c8.png" alt="springboot注解"></p>
+<p>@SpringBootApplication 由三个重要注解组成</p>
+<ul>
+<li>@SpringBootConfiguration </li>
+<li>@EnableAutoConfiguration</li>
+<li>@ComponentScan</li>
+</ul>
+<p>@SpringBootConfiguration  等价于 @Configuration ，说明该项目通过 java configuration 的方式进行配置。</p>
+<p>@ComponentScan 扫描 classpath 下的包和子包用户自定义的一些需要注入的 bean。</p>
+<p>@EnableAutoConfiguration 是开启自动配置的功能。</p>
+<p>@EnableAutoConfiguration 帮助我们自动载入应用程序所需要的默认配置。也就是我们加入的各种 spring-boot-starter 的配置信息，从而达到了自动配置的功能。</p>
+<p>它是由 @AutoConfigurationPackage 和 @Import(AutoConfigurationImportSelector.class) 组成的。<br>@AutoConfigurationPackage 是由核心注解 @Import(AutoConfigurationPackages.Registrar.class) 组成。</p>
+<p>所以我们要关注 AutoConfigurationPackages.Registrar.class 和 AutoConfigurationImportSelector.class 这两个类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * &#123;<span class="doctag">@link</span> ImportBeanDefinitionRegistrar&#125; to store the base package from the importing</span></span><br><span class="line"><span class="comment">	 * configuration.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Registrar</span> <span class="keyword">implements</span> <span class="title">ImportBeanDefinitionRegistrar</span>, <span class="title">DeterminableImports</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerBeanDefinitions</span><span class="params">(AnnotationMetadata metadata,</span></span></span><br><span class="line"><span class="function"><span class="params">				BeanDefinitionRegistry registry)</span> </span>&#123;</span><br><span class="line">			register(registry, <span class="keyword">new</span> PackageImport(metadata).getPackageName());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> Set&lt;Object&gt; <span class="title">determineImports</span><span class="params">(AnnotationMetadata metadata)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> Collections.singleton(<span class="keyword">new</span> PackageImport(metadata));</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，AutoConfigurationPackages.Registrar.class 事实上是将一些 bean 注入到 IOC 容器中。这里和之前的 ComponentScan 不同，它是注入一些 spring-boot-starter 的注解，例如 spring-data-jpa 标注的 @entity 等。</p>
+<p>它是将应用程序的主配置类所在包和子包 的一些 bean 导入的 IOC 容器，主配置类就是我们应用 springBootApplication 所在的位置    。</p>
+<p>查看 AutoConfigurationImportSelector 可以发现，它是通过 getCandidateConfigurations 方法来获取需要进行配置的信息，getCandidateConfigurations 中通过 SpringFactoriesLoader.loadFactoryNames 来加载需要配置的信息。<br>而这些加载的信息，保存在下面的路径中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String FACTORIES_RESOURCE_LOCATION = <span class="string">"META-INF/spring.factories"</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="SpringBoot-配置文件"><a href="#SpringBoot-配置文件" class="headerlink" title="SpringBoot 配置文件"></a>SpringBoot 配置文件</h3><p>同一目录下的 application 和 bootstrap</p>
+<ul>
+<li>bootstrap  优先级高于 application，优先被加载</li>
+<li>bootstrap  用于应用程序上下文的引导阶段，由父 ApplicationContext 加载</li>
+<li>bootstrap 是系统级别的配置 （不变的参数）， application 是应用级别的参数。</li>
+</ul>
+<p>不同位置的配置文件加载顺序 (优先级)</p>
+<ul>
+<li>file: ./config/ - 优先级最高 (项目根路径下的 config)</li>
+<li>file ./ - 优先级第二 (项目根路径)</li>
+<li>classpath: /config/ - 优先级第三 (项目 resources/config 下)</li>
+<li>classpath: / - 优先级第四 (项目 resources 目录下)</li>
+</ul>
+<p>高优先级的配置覆盖低优先级相同配置，多个配置文件互补。</p>
+<h3 id="SpringBoot-配置文件属性注入方式"><a href="#SpringBoot-配置文件属性注入方式" class="headerlink" title="SpringBoot 配置文件属性注入方式"></a>SpringBoot 配置文件属性注入方式</h3><ol>
+<li>@value 注入</li>
+<li>@ConfigurationProperties 注入</li>
+</ol>
+<p>@ConfigurationProperties 需要引入下列包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 专门用于数据绑定的依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>ConfigurationProperties 注入实例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &lt;h1&gt;SpringBoot 的配置&lt;/h1&gt;</span></span><br><span class="line"><span class="comment"> * Created by Qinyi.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"imooc.springboot"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBootConfig</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String version;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -457,12 +496,6 @@
           
             <a href="/foolish/tags/学习笔记/" rel="tag"># 学习笔记</a>
           
-            <a href="/foolish/tags/spring/" rel="tag"># spring</a>
-          
-            <a href="/foolish/tags/spring-cloud/" rel="tag"># spring cloud</a>
-          
-            <a href="/foolish/tags/netflix/" rel="tag"># netflix</a>
-          
         </div>
       
 
@@ -474,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/foolish/2019/10/30/分布式文件系统-eureka-server-搭建笔记/" rel="next" title="分布式文件系统-eureka-server 搭建笔记">
-                <i class="fa fa-chevron-left"></i> 分布式文件系统-eureka-server 搭建笔记
+              <a href="/foolish/2020/01/06/优惠券分发系统-学习笔记-第二章/" rel="next" title="优惠券分发系统-学习笔记-第二章">
+                <i class="fa fa-chevron-left"></i> 优惠券分发系统-学习笔记-第二章
               </a>
             
           </div>
@@ -483,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/foolish/2020/01/06/优惠券分发系统-学习笔记-第二章/" rel="prev" title="优惠券分发系统-学习笔记-第二章">
-                优惠券分发系统-学习笔记-第二章 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -690,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Circuit-Breaker-Hystrix-Clients-（循环断路器）"><span class="nav-number">1.</span> <span class="nav-text">Circuit Breaker: Hystrix Clients （循环断路器）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Circuit-Breaker-pattern"><span class="nav-number">1.1.</span> <span class="nav-text">Circuit Breaker pattern</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hystrix-Clients"><span class="nav-number">2.</span> <span class="nav-text">Hystrix Clients</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何在项目中导入-Hystrix"><span class="nav-number">3.</span> <span class="nav-text">如何在项目中导入 Hystrix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端侧的负载均衡器-Ribbon"><span class="nav-number">4.</span> <span class="nav-text">客户端侧的负载均衡器-Ribbon</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot-应用入口"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot 应用入口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Springboot-的三种启动方式"><span class="nav-number">1.1.</span> <span class="nav-text">Springboot 的三种启动方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBootApplication"><span class="nav-number">1.2.</span> <span class="nav-text">@SpringBootApplication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBoot-配置文件"><span class="nav-number">1.3.</span> <span class="nav-text">SpringBoot 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBoot-配置文件属性注入方式"><span class="nav-number">1.4.</span> <span class="nav-text">SpringBoot 配置文件属性注入方式</span></a></li></ol></li></ol></div>
             
 
           </div>
